@@ -1,0 +1,13 @@
+#-#
+TITLE="Posts"
+SUB="Expect the Unseen"
+source <(sed -n "0,/^#-#/ p" Makefile)
+HEAD=$(echo -e "${HEAD}\n<link rel=stylesheet type=text/css href=/css/time.css />")
+for i in $(find $(dirname $forig)/ -type f -printf "%T@:%p\n" \
+  |grep -v '_\|index'|sort -r|cut -f2 -d:|sed 's|\.md||'); do
+  MENU+="<h2><a href=\"/${i}\">$(sed -n '/^[A-Z][a-z].*/ p' ${i}.* | head -n1) \
+<span class='date'>$(date -ur ${i}.*)</span></a></h2>
+"; done
+#-#
+
+${MENU}

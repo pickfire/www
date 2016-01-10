@@ -1,0 +1,10 @@
+#-# vim:ft=html:
+LAYOUT=layouts/layout.dhtml
+for i in $(grep -sH "^TITLE" [^_]*/index.*|cut -f1 -d:|sed 's|\.[a-z]*|\.|'); do
+  ITEM+="<a href=/${i}html$([[ $forig =~ ${i%%/*} ]] && echo \ id=here)>\
+`sed -n 's/^TITLE=\"\(.*\)\"/\1/p' ${i}*`</a>
+"; done
+HEAD=$(echo -e "${HEAD}\n<link rel=stylesheet type=text/css href=/css/menu.css />")
+#-#
+
+${CONTENT}

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>${TITLE}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    ${HEAD}
+  </head>
+  <body>
+    <header>
+      <a href=/ id=img><img src=/img/fire.png height=45 alt="Fire!" /></a>
+      <a id=sub><strong>${LINK}</strong> - <em>${SUB}</em></a>
+    </header>
+    <div id="menu">
+      <span class="left">
+        ${ITEM}
+      </span>
+      <span class="right">
+        <a href="http://dl.pickfire.wha.la">Dl</a>
+        <a href="http://git.pickfire.wha.la">Src</a>
+        <a href="http://fegojapyxu6po4ku.onion">Tor</a>
+      </span>
+    </div>
+    <div id="nav">${NAV}</div>
+    <div id="content">
+      ${CONTENT}
+    </div>
+    <footer>
+      <span class="right">
+        Copyright © 2015-2016 Ivan Tham
+      </span>
+    </footer>
+  </body>
+</html>

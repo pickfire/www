@@ -1,0 +1,9 @@
+#-# vim:ft=html:
+LAYOUT=layouts/layout.dhtml
+TITLE="Pickfire if you dare. Hahaha"
+for i in $(grep -sH "^TITLE" [^_]*/index.*|cut -f1 -d:|sed 's|\.[a-z]*|\.|'); do
+  ITEM+="<a href=/${i}html>`sed -n 's/^TITLE=\"\(.*\)\"/\1/p' ${i}*`</a>
+"; done
+#-#
+
+${CONTENT}

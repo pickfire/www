@@ -1,0 +1,8 @@
+Makefile
+--------
+MENUS bug
+ - When adding a new menu file, make doesn't make every file.
+
+Add a way to `make clean all`
+
+vim:ft=markdown

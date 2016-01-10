@@ -1,0 +1,19 @@
+h2 {
+	padding: 0 10px;
+	margin: 10px -10px;
+	font-family: sans;
+}
+
+h2:nth-child(even) {
+	background: #EEE;
+}
+
+h2:hover {
+	background: #DDD;
+}
+
+h2 .date {
+	color: #555;
+	font-size: 50%;
+	font-family: serif;
+}
