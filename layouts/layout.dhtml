@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <a href=/ id=img><img src=/img/fire.png height=45 alt="Fire!" /></a>
+      <a id=fire href=/ alt=Site></a>
       <a id=sub><strong>${LINK}</strong> - <em>${SUB}</em></a>
     </header>
     <div id="menu">

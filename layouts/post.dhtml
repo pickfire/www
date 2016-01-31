@@ -8,12 +8,13 @@ base=$(echo $forig|sed 's:/.*::')
 for d in $(find $base -type d | grep -v _); do
   [[ $forig =~ $d ]] && l+=$(ls -Fd $PWD/$d/* | grep -v _):
 done
+
 NAV=$(for i in $(echo "$l"|tr : '\n'|sed "s|.*$base/||"|sort -u); do
   [[ $i =~ index.* ]] && continue
   [[ $forig =~ $base/$i ]] \
-    && echo ${i%.*}|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- **[\2](/$base/${i%.*})**|" \
-    || echo ${i%.*}|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- [\2](/$base/${i%.*})|"
-done | cmark)
+    && echo ${i%.*}|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- *[\u\2](/$base/${i%.*})*|" \
+    || echo ${i%.*}|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- [\u\2](/$base/${i%.*})|"
+done | cmark | sed 's/<em>/<div id=site>/ g; s|</em>|</div>| g')
 #-#
 
 <h1>${TITLE}</h1><p style='font-size: 100%'>${DATE}</p>

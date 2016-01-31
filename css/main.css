@@ -1,19 +1,3 @@
-/*
-html {
-	margin: 0 auto;
-	overflow: auto;
-	max-width: 1000px;
-	font-size: 125%;
-	font-family: sans-serif;
-}
-
-header a {
-	display: inline-block;
-	padding: 0 15px;
-	font-size: 250%;
-	color: #555;
-}
-*/
 body {
 	color: #444;
 	background: #F5F5F5;
@@ -30,6 +14,16 @@ header {
 	background: #e4e4e4;
 }
 
+#fire {
+	display: inline-block;
+	width: 40px; height: 40px;
+	background: url('http://dl.pickfire.wha.la/Sprite-0001.gif');
+}
+
+#fire:hover {
+	background-position: 0 -40px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -41,12 +35,11 @@ a:hover {
 #menu {
 	overflow: hidden;
 	background: #e4e4e4;
-	font-size: 1.8em;
+	font-size: 1.6em;
 }
 
 #menu a {
-	padding: 0.5ex 1ex;
-	margin: 0;
+	padding: 1ex;
 	color: #444;
 }
 
@@ -59,6 +52,13 @@ a:hover {
 	overflow: hidden;
 	margin: 1em 1em 1em 15em;
 	max-width: 1000px;
+}
+
+code {
+	color: #555;
+	background: #EEE;
+	border: 1px solid;
+	padding: 0 3px;
 }
 
 footer {

@@ -18,7 +18,6 @@ abracadabra() {
   done
 }
 
-# TODO: shorten it into a for loop
 d=$(dirname $forig) # Greedy $conf sucker
 while [ $(dirname $PWD) != $(realpath $PWD/$d) ]; do
   source $PWD/$d/$conf 2>/dev/null && abracadabra $1 && break || d+=/..

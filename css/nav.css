@@ -18,11 +18,10 @@
 
 #nav li a {
 	display: block;
-	margin: 0;
 	padding: 0.8ex 2em 0.8ex 1em;
 }
 
 #nav li #site {
-	color: #000; /* TODO: no color */
+	color: #000;
 	font-weight: bold;
 }
