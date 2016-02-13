@@ -14,12 +14,12 @@ cat <<EOF
 </author>
 EOF
 
-for i in $(find ${1} -type f -printf "%T@:%p\n"|grep -v '_\|index'|sort -r|cut -f2 -d:|sed "s|\.md||"); do cat <<EOF
-<entry><title>$(grep '^[A-Z][a-z].*' ${i}.* | head -n1)</title>
+for i in $(find ${1} -type f -name '*.md' -printf "%T@:%p\n"|grep -v '_\|index'|sort -r|cut -f2 -d:|sed "s|\.md||"); do cat <<EOF
+<entry><title>$(grep '^[A-Z][a-z].*' ${i}.md | head -n1)</title>
 <id>${SITE}${i}</id><link href="${SITE}${i}"/>
-<updated>$(TZ='UTC' date -ur ${i}.* +'%Y-%m-%dT%H:%M:%SZ')</updated>
+<updated>$(TZ='UTC' date -ur ${i}.md +'%Y-%m-%dT%H:%M:%SZ')</updated>
 <content type="html"><![CDATA[
-$(sed '0,/<div id="content">/ d' ${TARG}/${i}.*|tac|sed '0,/<\/div>/ d'|tac)
+$(sed '0,/<div id="content">/ d' ${TARG}/${i}.html|tac|sed '0,/<\/div>/ d'|tac)
 ]]></content></entry>
 EOF
 done && echo "</feed>"

@@ -11,7 +11,7 @@ Pomodoro Timer™, http://git.pickfire.wha.la/spt
 
 Ambidextrous
 ============
-###### **Note: This method that I am using won't work for chinese characters**
+##### **Note: This method that I am using won't work for chinese characters**
 
 One hand for (what rhymes with performance), two hands for performance.  
 Writing with two hands can have huge performance gain, just make sure you
@@ -29,15 +29,48 @@ keyboard is designed.
 
 Meditate
 ========
-Refresh your mind and purify your soul. Do only (nothing else):
+Refresh your mind and purify your soul. Do only (and nothing else):
 
 1. Breathe
 2. Breathe
 3. Breathe
 
-A simple technique, do count from 10 to 1 and recount from 10 to 1.
+A simple technique, do count from 10 to 1 and recount from 10 to 1.  
 A harder technique, do visualise yourself in a white dimension, safe and sound.
 
 Day of Week
 ===========
-Calculate the day of week using three fingers.
+Calculate the day of week (星期) using three fingers.
+```
+---
+   )
+--------------
+  一 | 二 | 三 )
+---------------
+   四 | 五 | 六 )
+---------------
+    |   | 日 )
+-------------
+    |   |   )        -> Forward Direction
+------------
+```
+
+<table>
+  <tr>
+    <td>星期</td><td>一</td><td>二</td><td>三</td><td>四</td><td>五</td><td>六</td><td>日</td>
+  </tr>
+  <tr>
+    <td></td><td>金</td><td>木</td><td>日</td><td>水</td><td>火</td><td>土</td><td>月</td><td>(I hope that Japanese can verify this)</td>
+  </tr>
+  <tr>
+    <td>Week</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td><td>Sunday</td>
+  </tr>
+</table>
+
+I will normally point my thumb to the part of the day of the week and do calculations:
+
+<table>
+  <tr>
+    <td>day</td>
+  </tr>
+</table>

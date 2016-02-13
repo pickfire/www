@@ -27,4 +27,4 @@ body="$([[ $1 =~ .md ]] && sed "$head d" $1 | cmark || sed "$head d" $1)"
 while [ -z "$(echo "${body}" | grep -o !DOCTYPE)" ]; do # Just do it!
   abracadabra ${LAYOUT:-${1}}
 done; echo "${body}" \
-  | sed -e '/${[A-Z]*}/ d' -e 's/index.html//g' -e '/^$/ d'
+  | sed -e '/${[A-Z]*}/ d' -e 's|/index.html|/|g' -e '/^$/ d' -e 's/^\s*//g'

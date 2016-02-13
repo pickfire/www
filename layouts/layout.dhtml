@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <a id=fire href=/ alt=Site></a>
+      <a id=fire href=/ alt=Site />
       <a id=sub><strong>${LINK}</strong> - <em>${SUB}</em></a>
     </header>
     <div id="menu">

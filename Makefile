@@ -1,4 +1,5 @@
-TARG=/srv/http  # Use _site for testing
+TARG=/srv/http
+#TARG=_site
 SITE=http://pickfire.wha.la/
 #-# Needed for other scripts TODO: consider moving this to config.mk
 
@@ -6,7 +7,7 @@ ABOUT = $(shell find about/[^_]* -type f -name '*.md')
 POSTS = $(shell find posts/[^_]* -type f -name '*.md')
 MENUS = $(wildcard [0-9]*.*) $(shell find [^_]* -name 'index.*')
 FEEDS = $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml
-EXTRA = $(wildcard css/* img/* txt/*)
+EXTRA = $(shell find -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.css' -o -name '*txt')
 PAGES = $(ABOUT) $(POSTS) $(MENUS)
 
 all: $(addprefix $(TARG)/, $(PAGES:.md=.html) $(EXTRA) $(FEEDS))
