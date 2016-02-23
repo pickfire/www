@@ -1,6 +1,8 @@
-WWW
----
-Generate a *layout-based* website with a simple **Makefile**.
+SSML
+====
+
+Generate a **static**, **minimal** site (*layout-based*) with a simple
+**Makefile**.
 
 
             Usage: make -j4 (or any number you like)
@@ -22,11 +24,11 @@ Generate a *layout-based* website with a simple **Makefile**.
                                                                   ^
                   --- rm -rf $(TARG)/                             |
       +----------/                                                |
-      |  clean   |        ./config.sh post/test.md > $(TARG)/post/test.html
+      |  clean   |        ./html.sh post/test.md > $(TARG)/post/test.html
       +==========+-----+ /
-      | Makefile | all + --- ./config.sh index.html > $(TARG)/index.html
+      | Makefile | all + ---- ./html.sh index.html > $(TARG)/index.html
       +==========+-----+ \
-                 |        ------ ./atom.sh post/ > $(TARG)/%/atom.xml
+                 |        ------- ./atom.sh post/ > $(TARG)/%/atom.xml
           +------+--+
           |  check  | validate online -> ./check.sh $(TARG)
           +---------+
@@ -50,13 +52,18 @@ Usage
 
 Need
 ----
-* cmark: https://github.com/jgm/cmark (A commonmark implementation in C)
+* cmark: <https://github.com/jgm/cmark> (A commonmark implementation in C)
+* mksh: <https://www.mirbsd.org/mksh.htm> (For a faster shell)
+* bash: <http://www.gnu.org/software/bash/bash.html>
+* GNU coreutils: <http://www.gnu.org/software/coreutils>
+* GNU sed: <http://www.gnu.org/software/sed>
+* GNU grep: <http://www.gnu.org/software/grep/grep.html>
 
 Tool
 ----
-- atom.sh - Find Markdown files and generate an Atom feed from it
-- check.sh - Find HTML/CSS/XML files and verify it online
-- config.sh - Output HTML content with a file as input
+- `atom.sh` - Find Markdown files and generate an Atom feed from it
+- `html.sh` - Output HTML content with a file as input
+- `check.sh` - Find HTML/CSS/XML files and verify it online
 
 Info
 ----

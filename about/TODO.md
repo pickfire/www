@@ -5,4 +5,4 @@ TODO
  - Learn pick-locking
  - Setup a **secure** mail server
  - Build an autonomous mini car
- - ~~Create a *better* logo for this site~~
+ - <strike>Create a *better* logo for this site</strike>

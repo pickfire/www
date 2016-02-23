@@ -56,15 +56,19 @@ Calculate the day of week (星期) using three fingers.
 ```
 
 <table>
+  <thead>
   <tr>
     <td>星期</td><td>一</td><td>二</td><td>三</td><td>四</td><td>五</td><td>六</td><td>日</td>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td></td><td>金</td><td>木</td><td>日</td><td>水</td><td>火</td><td>土</td><td>月</td><td>(I hope that Japanese can verify this)</td>
   </tr>
   <tr>
     <td>Week</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td><td>Sunday</td>
   </tr>
+  </tbody>
 </table>
 
 I will normally point my thumb to the part of the day of the week and do calculations:

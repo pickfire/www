@@ -1,44 +1,33 @@
-TARG=/srv/http
-#TARG=_site
-SITE=http://pickfire.wha.la/
-#-# Needed for other scripts TODO: consider moving this to config.mk
-
-ABOUT = $(shell find about/[^_]* -type f -name '*.md')
-POSTS = $(shell find posts/[^_]* -type f -name '*.md')
-MENUS = $(wildcard [0-9]*.*) $(shell find [^_]* -name 'index.*')
-FEEDS = $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml
-EXTRA = $(shell find -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.css' -o -name '*txt')
-PAGES = $(ABOUT) $(POSTS) $(MENUS)
+include config.mk
 
 all: $(addprefix $(TARG)/, $(PAGES:.md=.html) $(EXTRA) $(FEEDS))
 
-check: $(TARG) check.sh
-	./check.sh $<
+check: $(TARG) bin/check.sh
+	bin/check.sh $</*
 
 clean:
 	rm -rf $(TARG)/*
 
-gzip:
+gzip: all
 	gzip -9kf $(shell find $(TARG) -name '*.*ml' -o -name '*.css' -o -name '*.txt')
 
-# TODO: Shorten this into a line
-$(TARG)/posts/craft/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/craft/*.html))
-$(TARG)/posts/learn/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/learn/*.html))
-$(TARG)/posts/linux/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/linux/*.html))
-$(TARG)/posts/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/*/*.html))
+push: gzip
+	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
 
-# TODO: When there is a new file, the navigation bar should be updated (affect posts/about)
-$(addprefix $(TARG)/, $(POSTS:.md=.html)): posts/_www/config # TODO: find _www/config
-
-$(TARG)/%.html: %.* config.sh $(wildcard layouts/*.dhtml)
+$(TARG)/%.html: %.* html.sh $(wildcard layouts/*.dhtml)
 	@mkdir -p $(@D)
-	./config.sh $< > $@
+	./html.sh $< > $@
 
 $(TARG)/%/atom.xml: % atom.sh $(filter-out %/index.html, $(addprefix $(TARG)/, $(POSTS:.md=.html)))
 	@mkdir -p $(@D)
 	./atom.sh $< > $@
 
-$(addprefix $(TARG)/, $(EXTRA)): $(TARG)/%: %
+$(TARG)/%.css: %.css bin/css.sed
+	@mkdir -p $(@D)
+	bin/css.sed $< | tr -d '\n' > $@
+
+$(TARG)/%: %
 	cp -r $< --parents $(TARG)
 
-.PHONY: all gzip check clean
+.PHONY = all check clean gzip push
+.DEFAULT_GOAL = all

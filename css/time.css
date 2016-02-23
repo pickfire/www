@@ -5,15 +5,19 @@ h2 {
 }
 
 h2:nth-child(even) {
-	background: #EEE;
+	background-color: #EEE;
 }
 
 h2:hover {
-	background: #DDD;
+	background-color: #DDD;
 }
 
 h2 .date {
 	color: #555;
 	font-size: 50%;
 	font-family: serif;
+}
+
+h2 a {
+	color: #444;
 }

@@ -18,10 +18,6 @@
 
 #nav li a {
 	display: block;
-	padding: 0.8ex 2em 0.8ex 1em;
-}
-
-#nav li #site {
-	color: #000;
-	font-weight: bold;
+	padding: 7px 2em 7px 1em;
+	color: #444;
 }
