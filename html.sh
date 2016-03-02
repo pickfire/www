@@ -8,7 +8,7 @@ head="/^$sep/,/^$sep$/"
 conf=_www/config
 
 # Black magic, $1: file name (input)
-abracadabra() {
+abracadabra() { # TODO: Remove $LAYOUT somewhere here
   [[ $(head -n1 -c3 $1) == $sep ]] && source <(sed -n "$head p" $1)
 
   body=$(sed -e '/.*\${CONTENT}$/ r'<(echo "${body}") -e "$head d" $LAYOUT)
@@ -24,6 +24,6 @@ done
 
 body="$([[ $1 =~ .md ]] && sed "$head d" $1 | cmark || sed "$head d" $1)"
 while [ -z "$(echo "${body}" | grep -o !DOCTYPE)" ]; do # Just do it!
-  abracadabra ${LAYOUT:-${1}}
-done; echo "${body}" \
-  | sed -e '/${[A-Z]*}/ d' -e 's|/index.html|/|g' -e '/^$/ d' #-e 's/^\s*</</g'
+  abracadabra ${LAYOUT:-${1}} # TODO: Remove ${1}
+done; echo "${body}" | sed -e '/${[A-Z]*}/ d' -e 's|/index.html|/|g' \
+  | sed ':a;N;$!ba;s/>\s*</></g'

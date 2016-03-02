@@ -58,11 +58,22 @@ Misc
 
 rot13
 -----
-tr 'A-Za-z' 'N-ZA-Mn-za-m'
+    tr 'A-Za-z' 'N-ZA-Mn-za-m'
 
 Pen and Paper
 -------------
 I forgot the link (video).
+
+Random Passphrase
+-----------------
+xkcd image
+
+To easily generate a random passphrase using command line:
+
+    aspell dump master | grep -v "'" | shuf -n 4 | tr '\n' ' '
+
+What I did before this? I look it up online
+<https://duckduckgo.com/?q=random+passphrase>.
 
 Links
 =====

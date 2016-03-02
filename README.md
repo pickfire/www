@@ -1,8 +1,17 @@
-SSML
-====
+SSSG - Simple Static Site Generator
+===================================
 
-Generate a **static**, **minimal** site (*layout-based*) with a simple
-**Makefile**.
+SSSG is a layout-based static site generator built for parallelism and minimalism while being flexible and feature-full. Think of it as a layer of glue, which glues layers of papers into 3D models. It's perfect for simple personal sites that adheres to the [KISS Principle][0] while being able to follow the [Suckless Philosophy][1] and get rid of [Dependency Hell][2].
+
+[0]: https://en.wikipedia.org/wiki/KISS_principle
+[1]: http://suckless.org/philosophy
+[2]: https://en.wikipedia.org/wiki/Dependency_hell
+
+### Why SSSG?
+
+It gives you the choice to be in control of your own site. But in return, you need to give it love and time like a wise man once spoken: [“先苦后甜”][3].
+
+[3]: http://www.zdic.net/sousuo/?q=%E5%85%88%E8%8B%A6%E5%90%8E%E7%94%9C
 
 
             Usage: make -j4 (or any number you like)
@@ -35,8 +44,13 @@ Generate a **static**, **minimal** site (*layout-based*) with a simple
           |   gzip  | -> gzip -9k (all compress-able files)
           +---------+
 
-Usage
------
+The installation is simple, just make this your site:
+```fish
+git clone https://github.com/pickfire/sssg --depth 1
+rm -rf sssg/.git
+```
+Rule
+----
 
 1. The `_www/config` found at the previous/current directory of the input file
    will be sourced, bash script and variables are optional.
@@ -65,6 +79,30 @@ Tool
 - `html.sh` - Output HTML content with a file as input
 - `check.sh` - Find HTML/CSS/XML files and verify it online
 
-Info
+Help
 ----
-Colorscheme: [Paper Color](https://github.com/NLKNguyen/papercolor-theme)
+- Personal help -> Email pickfire@riseup.net
+- [Issue Tracker](https://github.com/pickfire/sssg/issues)
+- [Pull Requests](https://github.com/pickfire/sssg/pulls)
+- [Source code](http://git.pickfire.wha.la/sssg) ([Mirror](https://github.com/pickfire/sssg))
+
+Inspiration
+-----------
+* [Paper Color Theme](https://github.com/NLKNguyen/papercolor-theme) as a nice
+  color scheme
+* [Statikiss framework project](https://github.com/moebiuseye/skf) which is
+  another bash static site generator based on suckless
+* [Suckless philosophy](http://suckless.org) which always focus to keep the
+  code minimal
+* [YAML frontmatter](https://jekyllrb.com/docs/frontmatter/) that enhance the
+  features of a site generator
+
+Alternative
+-----------
+* [Statikiss framework project](https://github.com/moebiuseye/skf) which is
+  another bash static site generator inspired by suckless philosophy
+
+Implementation
+--------------
+* [Pickfire's site](http://pickfire.wha.la/) ([Mirror](http://pickfire.github.io/))
+* **Add your site here**

@@ -3,16 +3,15 @@ LAYOUT=layouts/menu.dhtml
 TITLE="Posts"
 DATE=$(date -ur $forig)
 HEAD=$([[ $forig =~ 'posts' ]] && echo -e "<link href=/$(dirname $forig)/atom.xml type=application/atom+xml rel=alternate title=\"Pickfire $(basename $(dirname $forig)) ATOM Feed\" />\n${HEAD}")
-HEAD=$(echo -e "<link rel=stylesheet type=text/css href=/css/nav.css />\n${HEAD}")
 base=$(echo $forig|sed 's:/.*::')
 for d in $(find $base -type d); do
   [[ $forig =~ $d ]] && l+=$(ls -Fd $PWD/$d/* | grep -v '_\|index\|img'):
 done
 NAV=$(for i in $(echo "$l"|tr : '\n'|sed "s|.*$base/||; s|\..*||"|sort); do
   [[ $forig =~ $base/$i.* ]] \
-    && echo $i|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- **[\u\2](/$base/$i)**|" \
+    && echo $i|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- _**[\u\2](/$base/$i)**_|" \
     || echo $i|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- [\u\2](/$base/$i)|"
-done | cmark)
+  done | cmark | sed 's/><em>/ class=site>/ g; s|</em>|| g')
 #-#
 
 <h1>${TITLE}</h1><p style='font-size: 100%'>${DATE}</p>

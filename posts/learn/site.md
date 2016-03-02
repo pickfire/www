@@ -1,6 +1,6 @@
 Setting up this site for free
 =============================
-In the process of creating this site with a abnormal way (using ddns), most
+In the process of creating this site with an abnormal way (using ddns), most
 people had told me to give up and go buy a domain, I refuse. And now, here am
 I.
 

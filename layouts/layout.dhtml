@@ -12,16 +12,16 @@
   <body>
     <header>
       <a id=fire href=/></a>
-      <span><strong>${LINK}</strong> - <em>${SUB}</em></span>
+      <span><strong>${LINK}</strong><span id=info> - <em>${SUB}</em></span></span>
     </header>
     <div id="menu">
       <span class="left">
         ${ITEM}
       </span>
       <span class="right">
-        <abbr title="Download"><a href="http://dl.pickfire.wha.la">Dl</a></abbr>
-        <abbr title="Source"><a href="http://git.pickfire.wha.la">Src</a></abbr>
-        <a href="http://fegojapyxu6po4ku.onion">Tor</a>
+        <a href="http://dl.pickfire.wha.la">Download</a>
+        <a href="http://git.pickfire.wha.la">Source</a>
+        <a href="http://pickfireywcq2wf2.onion/">Tor</a>
       </span>
     </div>
     <div id="nav">${NAV}</div>

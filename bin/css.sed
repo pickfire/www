@@ -9,6 +9,7 @@ s#\/\*.*\*\/##g
 s/\s*{/{/g
 s/:\s*/:/g
 s/,\s*/,/g
+s/;\s*/;/g
 
 # Header x Footer
 s/^\s*//

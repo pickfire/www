@@ -9,7 +9,7 @@ clean:
 	rm -rf $(TARG)/*
 
 gzip: all
-	gzip -9kf $(shell find $(TARG) -name '*.*ml' -o -name '*.css' -o -name '*.txt')
+	@gzip -9kf $(shell find $(TARG) -name '*.*ml' -o -name '*.css' -o -name '*.txt') && echo $@
 
 push: gzip
 	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
