@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: Ivan Tham
+
+Sitemap: http://pickfire.wha.la/sitemap.xml

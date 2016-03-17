@@ -1,0 +1,25 @@
+#main a {
+	display: block;
+	color: #444;
+	padding: 1px 1ex;
+	margin: 1ex -1ex;
+	font-family: sans;
+}
+
+#main a > * {
+	margin: 0;
+}
+
+#main > a:nth-child(even) {
+	background-color: #EEE;
+}
+
+#main .date {
+	color: #555;
+	font-size: 50%;
+	font-family: serif;
+}
+
+#main a:hover {
+	background-color: #DDD;
+}

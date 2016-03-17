@@ -4,11 +4,14 @@
 }
 
 html {
+	margin: 0; padding: 0;
+}
+
+html {
 	height: 100%;
 }
 
 body {
-	margin: 0; padding: 0;
 	position: relative;
 	min-height: 100%;
 	font-family: sans-serif;
@@ -16,11 +19,15 @@ body {
 }
 
 header {
-	padding: 5px 15px;
+	font-size: 200%;
+	padding: 3px 5px;
 	border-top: 2px solid #444;
 	text-shadow: 2px 1px #ccc;
-	font-size: 250%;
 	color: #3a3a3a; background-color: #e4e4e4;
+}
+
+header #info {
+	display: none;
 }
 
 footer {
@@ -47,9 +54,8 @@ header, footer {
 
 /* Content {{{ */
 #main {
-	overflow: hidden;
-	margin: 1em 5em 0 15em;
-	padding: 0 5px 6ex;
+	margin: 0 1em;
+	padding: 1px 3px 6ex;
 }
 
 #menu {
@@ -59,7 +65,7 @@ header, footer {
 }
 
 #menu a {
-	padding: 1ex;
+	padding: 1px 1ex;
 	color: #444;
 }
 
@@ -68,7 +74,7 @@ header, footer {
 }
 
 a { text-decoration: none; color: #4271ae; }
-#nav a:hover, li a:hover, p a:hover { background-color: #e4e4e4; } /* TODO: Shorten this */
+#nav a:hover, #main a:hover { background-color: #e4e4e4; } /* TODO: Shorten this */
 
 #main img { max-width: 100%; max-height: 100% } /* }}} */
 
@@ -116,8 +122,66 @@ blockquote {
 	float: right;
 } /* }}} */
 
+/* Navigation bar {{{ */
+#nav {
+		float: left;
+		width: 200px;
+		border-right: 1px dotted #ccc;
+	margin: 1px 1px 5px;
+	padding: 1em 0;
+	clear: both;
+}
+
+#nav ul, #nav li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#nav li ul {
+	padding-left: 0.6em !important;
+}
+
+#nav li a {
+	display: block;
+	padding: 7px 2em 7px 1em;
+	color: #444;
+}
+
+@media only screen and (max-width: 600px) { /* TODO: Reverse this to make it mobile-first */
+	#nav {
+		float: none;
+		width: 100%;
+	border-right: none;
+	}
+
+	#nav li {
+		display: none;
+	}
+
+	#nav li.site { /* TODO: use :last-child */
+		display: block;
+	}
+
+	#nav ul:hover li {
+		display: block;
+	}
+} /* }}} */
+
 /* Mobile-friendly {{{ */
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 600px) {
+	header {
+		font-size: 250%;
+		padding: 5px 15px;
+	}
+
+	header #info {
+		display: inline;
+	}
+
+	#main {
+		margin: 1em 3% 0 calc(13em + 2%);
+	}
 }
 /* }}} */
 

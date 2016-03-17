@@ -19,16 +19,16 @@ It gives you the choice to be in control of your own site. But in return, you ne
     +--------------------+    +--------------------+    +--------------------+
     | layouts/main.dhtml |    | layouts/post.dhtml |    |  post/_www/config  |
     +--------------------+    +--------------------+    +--------------------+
-    |<!DOCTYPE HTML>     |    |#-# vim:ft=html:    |    |LAYOUT=layouts/post+|
-    |                    |    |LAYOUT=layouts/main+|    |DATE=$(date $forig) |
-    |<html>              |    |F=$forig            |    |T=$(head -n $forig) |
-    |<head>              |    |#-#                 |    +---------+----------+
-    |  <title>${T}</titl+|    |                    |              |
-    |</head>             |    |${F}                |    +---------+----------+
-    |<body>              |    |====                |    |    post/test.md    |
-    |  ${CONTENT}    <------  |${CONTENT}      <------  +--------------------+
-    |</body>             |    |                    |    |- Hello World!      |
-    |</html>             |    |Created by ${DATE}  |    |- cmark-powered     |
+    |#-#                 |    |#-# vim:ft=html:    |    |LAYOUT=layouts/post+|
+    |return 3            |    |LAYOUT=layouts/main+|    |DATE=$(date $forig) |
+    |#-#                 |    |F=$forig            |    |T=$(head -n $forig) |
+    |<!DOCTYPE html>     |    |return              |    +---------+----------+
+    |                    |    |#-#                 |              |
+    |<html><head>        |    |${F}                |    +---------+----------+
+    |  <title>${T}</titl+|    |====                |    |    post/test.md    |
+    |</head><body>       |    |${CONTENT}      <------  +--------------------+
+    |  ${CONTENT}    <------  |                    |    |- Hello World!      |
+    |</body></html>      |    |Created by ${DATE}  |    |- cmark-powered     |
     +--------------------+    +--------------------+    +------------------- +
                                                                   ^
                   --- rm -rf $(TARG)/                             |
@@ -43,23 +43,28 @@ It gives you the choice to be in control of your own site. But in return, you ne
           +---------+
           |   gzip  | -> gzip -9k (all compress-able files)
           +---------+
+    
+    The format isn't fixed currently, it might change to use return as ending.
 
 The installation is simple, just make this your site:
 ```fish
 git clone https://github.com/pickfire/sssg --depth 1
 rm -rf sssg/.git
 ```
+Configurations can be done by editing `html.sh`, `atom.sh` and `config.mk`.
+
 Rule
 ----
 
 1. The `_www/config` found at the previous/current directory of the input file
-   will be sourced, bash script and variables are optional.
+   will be sourced, shell script and variables are optional.
 
-2. Add bash functions/variables in between `#-#` lines at the beginning of the
-   code, the second `#-#` must not have trailing characters. (optional)
+2. Add shell functions/variables after adding `#-#` at the beginning of the file
+   and end with a `return`/`return 3` (to exit `source`) follow by a `#-#`
+   without any trailing characters.
 
 3. In between those lines of code, add `LAYOUT=path/layout.dhtml` to paste the
-   current content into `layout.dhtml`'s `${CONTENT}`.
+   current content into `layout.dhtml`'s `${CONTENT}`. (Required)
 
 4. Use `${VAR}` (must be uppercase) in files to substitute it to the variable,
    unused variables (line) will be deleted when generation is completed.
@@ -68,7 +73,6 @@ Need
 ----
 * cmark: <https://github.com/jgm/cmark> (A commonmark implementation in C)
 * mksh: <https://www.mirbsd.org/mksh.htm> (For a faster shell)
-* bash: <http://www.gnu.org/software/bash/bash.html>
 * GNU coreutils: <http://www.gnu.org/software/coreutils>
 * GNU sed: <http://www.gnu.org/software/sed>
 * GNU grep: <http://www.gnu.org/software/grep/grep.html>
@@ -91,7 +95,7 @@ Inspiration
 * [Paper Color Theme](https://github.com/NLKNguyen/papercolor-theme) as a nice
   color scheme
 * [Statikiss framework project](https://github.com/moebiuseye/skf) which is
-  another bash static site generator based on suckless
+  another static site generator based on suckless
 * [Suckless philosophy](http://suckless.org) which always focus to keep the
   code minimal
 * [YAML frontmatter](https://jekyllrb.com/docs/frontmatter/) that enhance the
@@ -100,7 +104,7 @@ Inspiration
 Alternative
 -----------
 * [Statikiss framework project](https://github.com/moebiuseye/skf) which is
-  another bash static site generator inspired by suckless philosophy
+  a bash static site generator inspired by suckless philosophy
 
 Implementation
 --------------

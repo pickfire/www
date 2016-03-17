@@ -1,8 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env mksh
 # Usage: check.sh file(s)
-source <(sed -n "0,/^#-#/ p" config.mk)
-
-site=http:%2F%2Fpickfire.wha.la%2F
+source config.sh
 
 check() {
   case ${1} in
@@ -12,6 +10,7 @@ check() {
     # TODO: Add svg support
   esac | egrep -qo 'Sorry|errors' \
     && echo -e '[\e[1;31mFAIL\e[m]' ${1//'%2F'/'/'} >&2
-}; export -f check
+}
+export PARALLEL_ENV=`typeset -f check`
 
-find $* -type f | sed "s|${TARG}/|${site}|; s|/|%2F|g" | uniq | parallel -uj400% check
+find $* -type f | sed "s|${TARG}/|${SITE//'/'/'%2F'}|; s|/|%2F|g" | uniq | parallel -uj400% check

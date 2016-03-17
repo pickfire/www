@@ -1,6 +1,6 @@
 include config.mk
 
-all: $(addprefix $(TARG)/, $(PAGES:.md=.html) $(EXTRA) $(FEEDS))
+all: $(addprefix $(TARG)/, $(PAGES:.md=.html) $(EXTRA) $(FEEDS)) map gzip
 
 check: $(TARG) bin/check.sh
 	bin/check.sh $</*
@@ -8,19 +8,27 @@ check: $(TARG) bin/check.sh
 clean:
 	rm -rf $(TARG)/*
 
-gzip: all
-	@gzip -9kf $(shell find $(TARG) -name '*.*ml' -o -name '*.css' -o -name '*.txt') && echo $@
+map: bin/map.sh $(addprefix $(TARG)/, $(PAGES:.md=.html) $(EXTRA) $(FEEDS))
+	@bin/map.sh
 
-push: gzip
+gzip: $(patsubst %, $(TARG)/%.gz, $(filter %.html %.xml %.txt %.css %.svg, \
+	$(PAGES:.md=.html) $(EXTRA) $(FEEDS)))
+
+push: all
 	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
 
-$(TARG)/%.html: %.* html.sh $(wildcard layouts/*.dhtml)
+$(TARG)/%.html: %.* bin/html.sh $(wildcard layouts/*.dhtml)
 	@mkdir -p $(@D)
-	./html.sh $< > $@
+	bin/html.sh $< > $@
 
-$(TARG)/%/atom.xml: % atom.sh $(filter-out %/index.html, $(addprefix $(TARG)/, $(POSTS:.md=.html)))
+# TODO: Shorten this into a line if possible
+$(TARG)/%/atom.xml: % bin/atom.sh $(filter-out %/index.html, $(addprefix $(TARG)/, $(POSTS:.md=.html)))
 	@mkdir -p $(@D)
-	./atom.sh $< > $@
+	bin/atom.sh $< > $@
+
+$(TARG)/%/rss.xml: % bin/rss.sh $(filter-out %/index.html, $(addprefix $(TARG)/, $(POSTS:.md=.html)))
+	@mkdir -p $(@D)
+	bin/rss.sh $< > $@
 
 $(TARG)/%.css: %.css bin/css.sed
 	@mkdir -p $(@D)
@@ -29,5 +37,8 @@ $(TARG)/%.css: %.css bin/css.sed
 $(TARG)/%: %
 	cp -r $< --parents $(TARG)
 
-.PHONY = all check clean gzip push
+$(TARG)/%.gz: $(TARG)/%
+	@gzip -9kf $< > $@
+
+.PHONY = all check clean map gzip push
 .DEFAULT_GOAL = all

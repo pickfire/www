@@ -1,13 +1,14 @@
-TARG=/srv/http
-#TARG=_site
-SITE=http://pickfire.wha.la/
-#-# Needed for other scripts
+TARG = /srv/http
+#TARG = _site
+SITE = http://pickfire.wha.la/
+SXML = sed -
 
 ABOUT = $(shell find about/[^_]* -type f -name '*.md')
 POSTS = $(shell find posts/[^_]* -type f -name '*.md')
 MENUS = $(wildcard [0-9]*.*) $(shell find [^_]* -name 'index.*')
-FEEDS = $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml
-EXTRA = $(shell find -name '*.png' -o -name '*.jpg' -o -name '*.gif') $(wildcard txt/* css/*.css)
+FEEDS = $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml \
+	$(patsubst %, %rss.xml, $(dir $(POSTS))) posts/rss.xml
+EXTRA = $(shell find -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.txt') $(wildcard css/*.css)
 PAGES = $(ABOUT) $(POSTS) $(MENUS)
 
 # Dependencies
