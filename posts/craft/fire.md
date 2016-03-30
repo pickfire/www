@@ -3,13 +3,13 @@ Moving Fire on the Go! - ABRACADABRA
 
 Pixel Art
 ---------
-![fire][fire] <img src=http://i1215.photobucket.com/albums/cc506/Rockingbro/170422_dancing_banana.gif alt="dancing banana" height=80 />
+![fire][fire] <img src=http://i1215.photobucket.com/albums/cc506/Rockingbro/170422_dancing_banana.gif alt="dancing banana" height=80/>
 
 Some time after I created that unpleasant fire, I make up my mind to create a
 better fire (pixel art) that move (partly inspired by the dancing banana). I
 plan to use [aseprite](//aseprite.org).
 
-[fire]: /img/fire.png
+[fire]: /pub/fire.png
 
 ### Drawing
 Draw two image (32x32px each, skip to the **Fixing** to read more about what I
@@ -46,10 +46,10 @@ of red flame by extending the canvas size by another 40px horizontally.
 ### Outputs
 ![afire][afire]
 
-[afire]: /img/fire.gif
+[afire]: /pub/fire.gif
 
 ### Integrate
-Add `<a id=fire href=/ />` to `index.html`. Modify `style.css`:
+Add `<a id=fire href="/" />` to `index.html`. Modify `style.css`:
 ```
 #fire {
 	display: inline-block;

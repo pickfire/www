@@ -2,7 +2,8 @@
 LAYOUT=layouts/kiss.dhtml
 TITLE="Home"
 LINK="Pickfire"
-SUB="Keep It Simple, Stupid"
+SUB="Engulf the Unbeatable"
+return
 #-#
 
 <p title="Ops, you have found me!">

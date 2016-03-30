@@ -1,13 +1,14 @@
 #-#
 TITLE="Posts"
 SUB="Expect the Unseen"
-source <(sed -n "0,/^#-#/ p" config.mk)
-HEAD=$(echo -e "${HEAD}\n<link rel=stylesheet type=text/css href=/css/time.css />")
-for i in $(find $(dirname $forig)/ -name '*.md' -type f -printf "%T@:%p\n" \
-  |grep -v '_\|index'|sort -r|cut -f2 -d:|sed 's|\.md||'); do
-  MENU+="<h2><a href=\"/${i}\">$(sed -n '/^[A-Z][a-z].*/ p' ${i}.* | head -n1) \
-<span class='date'>$(date -ur ${i}.*)</span></a></h2>
+HEAD='<link rel=stylesheet type="text/css" href="/pub/time.css"/>'
+source config.sh
+for i in $(find $(dirname $forig) -name '*.md' -type f -printf "%T@:%p\n" \
+  |grep -v '_\|index'|sort -r|cut -f2 -d:|sed 's/\.md//'); do
+  MENU+="<a href=\"/${i}\">$(sed -n '/^[A-Z][a-z].*/ p' ${i}.* | head -n1) \
+<span class='date'>$(date '+%a %_d %b %Y' -ur ${i}.*)</span></a>
 "; done
+return
 #-#
 
 <h1>Time Machine</h1>

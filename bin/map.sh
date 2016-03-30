@@ -8,3 +8,5 @@ $( (find ${TARG} -name '*.html' | sed "s|${TARG}|${SITE}|" | tee ${TARG}/urllist
    | sed 's|^|<url><loc>|; s|$|</loc></url>|' | tr -d '\n')
 </urlset>
 EOF
+
+gzip -9kf ${TARG}/urllist.txt ${TARG}/sitemap.xml

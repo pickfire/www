@@ -7,12 +7,9 @@ cat <<EOF
 <rss version="2.0">
 <channel>
 <title>Pickfire $(echo $1 | sed 's|.*/\([a-z]*\)[^a-z]*|\1|')</title>
+<description>Pick fire if you dare! hahaha</description>
 <link>${SITE}/${1}/rss.xml</link>
-<pubDate>$(TZ='UTC' date -u +'%Y-%m-%dT%H:%M:%SZ')</pubDate>
-<author>
-<name>Ivan Tham</name>
-<email>pickfire@riseup.net</email>
-</author>
+<pubDate>$(TZ='UTC' date -Ru)</pubDate>
 EOF
 
 for i in $(find ${1} -type f -name '*.md' -printf "%T@:%p\n"|grep -v '_\|index'\
@@ -20,7 +17,7 @@ for i in $(find ${1} -type f -name '*.md' -printf "%T@:%p\n"|grep -v '_\|index'\
 <item>
 <title>$(grep '^[A-Z][a-z].*' ${i}.md | head -n1)</title>
 <link>${SITE}/${i}</link>
-<pubDate>$(TZ='UTC' date -ur ${i}.md +'%Y-%m-%dT%H:%M:%SZ')</pubDate>
+<pubDate>$(TZ='UTC' date -Rur ${i}.md)</pubDate>
 <description><![CDATA[
 $(sed ':a;N;$!ba; s|.*<div id="main">\(.*\)</div>.*|\1|' ${TARG}/${i}.html)
 ]]></description></item>

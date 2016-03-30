@@ -47,7 +47,7 @@ header, footer {
 #fire {
 	display: inline-block;
 	width: 40px; height: 40px; margin: 0 5px -2px 0;
-	background: url(/img/fire.gif);
+	background: url(/pub/fire.gif);
 }
 #fire:hover	{background-position:-40px 0;}
 #fire:active {background-position:-80px 0;} /* }}} */
@@ -67,18 +67,25 @@ header, footer {
 #menu a {
 	padding: 1px 1ex;
 	color: #444;
+	transition: all .1s ease-in;
 }
 
 #menu #here, #menu a:hover {
 	background-color: #F5F5F5;
 }
 
-a { text-decoration: none; color: #4271ae; }
-#nav a:hover, #main a:hover { background-color: #e4e4e4; } /* TODO: Shorten this */
+#nav a:hover, #main a:hover { /* TODO: Shorten this */
+	background-color: #e4e4e4;
+}
 
 #main img { max-width: 100%; max-height: 100% } /* }}} */
 
 /* Basic styling {{{ */
+a {
+	text-decoration: none;
+	color: #4271ae;
+}
+
 p {
 	line-height: 1.5;
 }
@@ -146,6 +153,11 @@ blockquote {
 	display: block;
 	padding: 7px 2em 7px 1em;
 	color: #444;
+}
+
+#nav a.site {
+	color: #3a3a3a;
+	font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) { /* TODO: Reverse this to make it mobile-first */

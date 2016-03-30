@@ -12,7 +12,7 @@ abracadabra() {
   [ $(head -n1 -c3 $1) == $sep ] && source $1 2>/dev/null
 
   [ $? -eq 3 ] && echo "${body}" | sed '/${[A-Z]*}/ d; s|/index.html|/|g' \
-    | sed ':a;N;$!ba;s/>\s*</></g' && exit # exit if 3 is returned
+    && exit # exit if 3 is returned
 
   body=$([ -z "${body}" ] && sed "$head d" $LAYOUT || sed -e "/\${CONTENT}$/ c\
 $(echo "${body}"|sed '$! s/$/\\/')" -e "$head d" $LAYOUT) # TODO: \ fails here

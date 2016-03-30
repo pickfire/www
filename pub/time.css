@@ -4,20 +4,22 @@
 	padding: 1px 1ex;
 	margin: 1ex -1ex;
 	font-family: sans;
+	font-size: 130%;
 }
 
-#main a > * {
+#main a * {
 	margin: 0;
 }
 
-#main > a:nth-child(even) {
+#main a:nth-child(even) {
 	background-color: #EEE;
 }
 
 #main .date {
 	color: #555;
-	font-size: 50%;
+	font-size: 60%;
 	font-family: serif;
+	font-weight: lighter;
 }
 
 #main a:hover {
