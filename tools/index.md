@@ -1,8 +1,3 @@
-#-#
-LAYOUT=layouts/menu.dhtml
-TITLE="Tools"
-SUB="Empower the Users"
-return
-#-#
+! This page is still in development
 
 - [Simple Static Site Generator](http://sssg.pickfire.wha.la/)

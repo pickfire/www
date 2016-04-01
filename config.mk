@@ -8,10 +8,12 @@ SXML = | sed ':a;N;$$!ba;s/>\s*</></g'
 
 ABOUT = $(shell find about/ -type f -name '*.md' -a ! -path '*_*')
 POSTS = $(shell find posts/ -type f -name '*.md' -a ! -path '*_*')
-MENUS = $(wildcard [0-9]*.*) $(shell find -name 'index.*' -a ! -path '*_*')
+MENUS = $(shell find -name 'index.*' -a ! -path '*_*' | grep -v '_') \
+	$(wildcard [0-9]*.md [0-9]*.shtml)
 FEEDS = $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml \
 	$(patsubst %, %rss.xml, $(dir $(POSTS))) posts/rss.xml
-EXTRA = $(shell find ! -path -a -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.txt') $(wildcard pub/*.css)
+EXTRA = $(shell find -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.svg' -o -name '*.txt' | grep -v '_') \
+	$(wildcard pub/*.css)
 PAGES = $(ABOUT) $(POSTS) $(MENUS)
 
 # Dependencies

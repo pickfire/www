@@ -1,9 +1,3 @@
-#-#
-TITLE="About"
-LAYOUT=layouts/post.dhtml
-return
-#-#
-
 Who am I? I am **Ivan Tham**, a humble homo sapiens who lived in the Earth.
 
 Things I like

@@ -1,6 +1,6 @@
 include config.mk
 
-all: $(addprefix $(TARG)/, $(PAGES:.md=.html) $(EXTRA) $(FEEDS)) map gzip
+all: $(addprefix $(TARG)/, $(addsuffix .html, $(basename $(PAGES))) $(EXTRA) $(FEEDS)) map gzip
 
 check: $(TARG) bin/check.sh
 	bin/check.sh $</*
@@ -9,16 +9,20 @@ check: $(TARG) bin/check.sh
 clean:
 	rm -rf $(TARG)/*
 
-map: bin/map.sh $(addprefix $(TARG)/, $(PAGES:.md=.html))
+map: bin/map.sh $(addprefix $(TARG)/, $(addsuffix .html, $(basename $(PAGES))))
 	@bin/map.sh
 
 gzip: $(patsubst %, $(TARG)/%.gz, $(filter %.html %.xml %.txt %.css %.svg, \
-	$(PAGES:.md=.html) $(EXTRA) $(FEEDS)))
+	$(addsuffix .html, $(basename $(PAGES))) $(EXTRA) $(FEEDS)))
 
 push: all
 	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
 
-$(TARG)/%.html: %.* bin/html.sh $(wildcard layouts/*.dhtml)
+$(TARG)/%.html: %.shtml bin/html.sh $(wildcard layouts/*.dhtml) # TODO: Merge with the one below
+	@mkdir -p $(@D)
+	bin/html.sh $< $(SXML) > $@
+
+$(TARG)/%.html: %.md bin/html.sh $(wildcard layouts/*.dhtml)
 	@mkdir -p $(@D)
 	bin/html.sh $< $(SXML) > $@
 
@@ -31,7 +35,7 @@ $(TARG)/%/rss.xml: % bin/rss.sh $(filter-out %/index.html, $(addprefix $(TARG)/,
 	@mkdir -p $(@D)
 	bin/rss.sh $< $(SXML) > $@
 
-$(TARG)/%.css: %.css bin/css.sed
+$(TARG)/%.css: %.css bin/css.sh
 	@mkdir -p $(@D)
 	bin/css.sh $< > $@
 

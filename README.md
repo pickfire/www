@@ -17,18 +17,22 @@ It gives you the choice to be in control of your own site. But in return, you ne
             Usage: make -j4 (or any number you like)
 
     +--------------------+    +--------------------+    +--------------------+
-    | layouts/main.dhtml |    | layouts/post.dhtml |    |  post/_www/config  |
+    |   layouts/main.sh  |    |   layouts/post.sh  |    |  post/_www/config  |
     +--------------------+    +--------------------+    +--------------------+
-    |#-#                 |    |#-# vim:ft=html:    |    |LAYOUT=layouts/post+|
-    |return 3            |    |LAYOUT=layouts/main+|    |DATE=$(date $forig) |
-    |#-#                 |    |F=$forig            |    |T=$(head -n $forig) |
-    |<!DOCTYPE html>     |    |return              |    +---------+----------+
-    |                    |    |#-#                 |              |
-    |<html><head>        |    |${F}                |    +---------+----------+
-    |  <title>${T}</titl+|    |====                |    |    post/test.md    |
-    |</head><body>       |    |${CONTENT}      <------  +--------------------+
-    |  ${CONTENT}    <------  |                    |    |- Hello World!      |
-    |</body></html>      |    |Created by ${DATE}  |    |- cmark-powered     |
+    |return 4            |    |LAYOUT=layouts/main+|    |LAYOUT=layouts/post+|
+    +---------+----------+    |F=$forig            |    |DATE=$(date $forig) |
+              |               +---------+----------+    |T=$(head -n $forig) |
+    +---------+----------+              |               +---------+----------+
+    | layouts/main.dhtml |    +---------+----------+              |
+    +--------------------+    | layouts/post.dhtml |    +---------+----------+
+    |<!DOCTYPE html>     |    +--------------------+    |    post/test.md    |
+    |<html>              |    |${F}                |    +--------------------+
+    |  <head>            |    |====                |    |Why?                |
+    |    <title>${T}</ti+|    |                    |    |----                |
+    |  <head>            |    |${CONTENT}      <------  |- Parallel and fast |
+    |  <body>            |    |                    |    |- Markdown-powered  |
+    |    ${CONTENT}  <------  |---                 |    |- Minimal outputs   |
+    |    ...             |    |Created by ${DATE}  |    |- Flexiblility++    |
     +--------------------+    +--------------------+    +------------------- +
                                                                   ^
                   --- rm -rf $(TARG)/                             |
@@ -40,8 +44,6 @@ It gives you the choice to be in control of your own site. But in return, you ne
                  |        ------- ./atom.sh post/ > $(TARG)/%/atom.xml
           +------+--+
           |  check  | validate online -> ./check.sh $(TARG)
-          +---------+
-          |   gzip  | -> gzip -9k (all compress-able files)
           +---------+
     
     The format isn't fixed currently, it might change to use return as ending.
