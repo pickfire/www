@@ -18,11 +18,11 @@ gzip: $(patsubst %, $(TARG)/%.gz, $(filter %.html %.xml %.txt %.css %.svg, \
 push: all
 	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
 
-$(TARG)/%.html: %.shtml bin/html.sh $(wildcard layouts/*.dhtml) # TODO: Merge with the one below
+$(TARG)/%.html: %.shtml %.* bin/html.sh $(wildcard layouts/*.dhtml) # TODO: Merge with the one below
 	@mkdir -p $(@D)
 	bin/html.sh $< $(SXML) > $@
 
-$(TARG)/%.html: %.md bin/html.sh $(wildcard layouts/*.dhtml)
+$(TARG)/%.html: %.md %.* bin/html.sh $(wildcard layouts/*.dhtml)
 	@mkdir -p $(@D)
 	bin/html.sh $< $(SXML) > $@
 

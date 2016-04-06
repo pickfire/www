@@ -1,4 +1,4 @@
-LAYOUT=layouts/kiss.dhtml
+LAYOUT=lay/kiss.dhtml
 TITLE="Home"
 LINK="Pickfire"
 SUB="Engulf the Unbeatable"

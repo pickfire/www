@@ -66,6 +66,7 @@ footer {
 	overflow: hidden;
 	background-color: #e4e4e4;
 	font-size: 1.6em;
+	fill: currentColor;
 }
 
 #menu a {

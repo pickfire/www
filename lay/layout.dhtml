@@ -20,9 +20,9 @@
         ${ITEM}
       </span>
       <span class="right">
-        <a href="http://dl.pickfire.wha.la">Download</a>
-        <a href="http://git.pickfire.wha.la">Source</a>
-        <a href="http://pickfireywcq2wf2.onion/">Tor</a>
+        <a href="http://dl.pickfire.wha.la"><img src="/pub/dl.svg"> Download</a>
+        <a href="http://git.pickfire.wha.la"> Source</a>
+        <a href="http://pickfireywcq2wf2.onion/"> Tor</a>
       </span>
     </div>
     <div id="nav">${NAV}</div>

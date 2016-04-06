@@ -1,6 +1,6 @@
 TITLE="Posts"
 SUB="Expect the Unseen"
-HEAD='<link rel=stylesheet href="/pub/time.css">'
+HEAD+='<link rel=stylesheet href="/pub/time.css">'
 source config.sh
 for i in $(find $(dirname $forig) -name '*.md' -type f -printf "%T@:%p\n" \
   |grep -v '_\|index\|.sh$'|sort -r|cut -f2 -d:|sed 's/\.md//'); do
