@@ -3,24 +3,24 @@
 <html>
   <head>
     <title>${TITLE}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="robots" content="noindex,follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/pub/normalize.css">
-    <link rel="stylesheet" href="/pub/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="noindex,follow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/pub/normalize.css"/>
+    <link rel="stylesheet" href="/pub/style.css"/>
     ${HEAD}
   </head>
   <body>
     <header>
-      <a id=fire href=/>Site </a>
+      <a id="fire" href="/">Site </a>
       <span><strong>${LINK}</strong><span id=info> - <em>${SUB}</em></span></span>
     </header>
     <div id="menu">
       <span class="left">
-        ${ITEM}
+        ${MENU}
       </span>
       <span class="right">
-        <a href="http://dl.pickfire.wha.la"><img src="/pub/dl.svg"> Download</a>
+        <a href="http://dl.pickfire.wha.la"><img src="/pub/dl.svg"/> Download</a>
         <a href="http://git.pickfire.wha.la"> Source</a>
         <a href="http://pickfireywcq2wf2.onion/"> Tor</a>
       </span>

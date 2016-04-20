@@ -1,1 +1,2 @@
-return 4
+echo "${body}" | sed '/${[A-Z]*}/ d; s|/index.html|/|g' &
+exit

@@ -4,12 +4,9 @@
 }
 
 html {
+	height: 100%;
 	margin: 0;
 	padding: 0;
-}
-
-html {
-	height: 100%;
 }
 
 body {
@@ -66,7 +63,6 @@ footer {
 	overflow: hidden;
 	background-color: #e4e4e4;
 	font-size: 1.6em;
-	fill: currentColor;
 }
 
 #menu a {

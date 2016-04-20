@@ -1,11 +1,16 @@
 LAYOUT=lay/menu.dhtml
 DATE=$(date -ur $forig)
-base=$(echo $forig|sed 's:/.*::')
-for d in $(find $base -type d|grep -v '_\|img'); do
-  echo $forig | grep -q $d && l=$l$(ls -Fd $PWD/$d/* | grep -v '_\|index\|img'):
-done
-NAV=$(for i in $(echo "$l"|tr : '\n'|sed "s|.*$base/||; s|\..*||"|sort); do
-  echo $forig | grep -q $base/$i \
-    && echo $i|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- [_\u\2_](/$base/$i)|" \
-    || echo $i|sed "s|/$|_|; s|[^/]*/|  |g; s|_$|/|; s|\(\s*\)\(.*\)|\1- [\u\2](/$base/$i)|"
-done | cmark | sed 's/><em>/ class=site>/ g; s|</em>|| g')
+
+d=${forig%/*}
+l=$(while p=$(realpath $PWD/$d); [ $PWD != $p ]; do
+  echo $p/*; d+=/..
+done | xargs ls -Fd | grep -v '_\|index\|img')
+
+NAV=$(for i in ${l}; do
+  i=${i#*${forig%%/*}}; i=${i%.*}       # Remove base and extension
+  y=${i%/[a-zA-Z]*}; z=${i#${y}}           # Split $i into $y + $z
+  s="${y//\//'  '}-"; s="${s//[a-zA-Z]/}"  # Spacing tree "  -"
+  [[ $forig = "*$i*" ]] \
+    && echo "${s//[a-z]/} [_${z#/}_](/${forig%%/*}${y}${z})" \
+    || echo "${s//[a-z]/} [${z#/}](/${forig%%/*}${y}${z})"
+done | cmark); NAV=${NAV//><em>/ class=site>}; NAV=${NAV//<\/em>/}

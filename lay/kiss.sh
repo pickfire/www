@@ -1,5 +1,5 @@
 LAYOUT=lay/layout.dhtml
 TITLE="Pickfire if you dare. Hahaha"
-for i in $(grep -sl "^TITLE" */index.*|grep -v _|sed 's|\.[a-z]*|\.|'); do
-  ITEM=$ITEM"<a href=/${i}html>`sed -n 's/^TITLE=\"\(.*\)\"/\1/p' ${i}*`</a>
+for i in $(grep -sHm1 "^LINK=" */_www/config); do
+  MENU+="<a href=/${i%%/*}>${i#*LINK=}</a>
 "; done

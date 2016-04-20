@@ -13,4 +13,5 @@ check() {
 }
 export PARALLEL_ENV=`typeset -f check`
 
+# TODO: Try using while; do; done | xargs
 find $* -type f | sed "s|${TARG}/|${SITE//'/'/'%2F'}|; s|/|%2F|g" | uniq | parallel -uj400% check
