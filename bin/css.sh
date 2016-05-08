@@ -7,7 +7,7 @@ s#\/\*.*\*\/##g
 /\/\*/,/\*\// d
 
 # Remove spacings
-s/\s*{/{/g
+s/\s*{\s*/{/g
 s/\([:,;]\)\s*/\1/g
 
 # Header x Footer

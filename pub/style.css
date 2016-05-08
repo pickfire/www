@@ -39,12 +39,13 @@ footer {
 	background-color: #eee;
 	font-size: 85%;
 	border-top: 1px solid #ccc;
-} /* }}} */
+	box-shadow: 0 -5px 1ex -1px rgba(0,0,0,.1)
+}/* }}} */
 
 /* Animated Logo {{{ */
 #fire {
 	display: inline-block;
-	margin: 0 5px -2px 0;
+	margin: 0 5px -3px 0;
 	width: 40px;
 	height: 40px;
 	text-indent: -999em;
@@ -77,8 +78,12 @@ footer {
 }
 
 #nav a:hover,
-#main a:hover { /* TODO: Shorten this */
+#main a:hover {
 	background-color: #e4e4e4;
+}
+
+footer a:hover {
+	text-decoration: underline;
 }
 
 #main img {
@@ -101,17 +106,17 @@ pre {
 	color: #555;
 	background-color: #eee;
 	font: 10px monospace;
-	border: 1px solid;
 }
 
 p code {
-	padding: 0 3px;
-	border-radius: 3px;
+	padding: 3px;
+	border-radius: 2px;
 }
 
 pre {
 	padding: 9px 1em;
 	border-radius: 5px;
+	border: 1px solid;
 }
 
 blockquote {
@@ -165,6 +170,10 @@ blockquote {
 #nav a.site {
 	color: #3a3a3a;
 	font-weight: bold;
+}
+
+#nav a.site:nth-last-child(1) {
+	font-weight: #fff;
 }
 
 @media only screen and (max-width: 600px) { /* TODO: Reverse this to make it mobile-first */
