@@ -58,6 +58,7 @@ footer {
 #main {
 	margin: 0 1em;
 	padding: 1px 3px 6ex;
+	max-width: 75em;
 }
 
 #menu {

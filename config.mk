@@ -3,9 +3,6 @@ TARG = /srv/http
 SITE = http://pickfire.wha.la/
 SXML = | sed ':a;N;$$!ba;s/>\s*</></g'
 
-#SHELL = /bin/sh
-#.SHELLFLAGS = -ec
-
 ABOUT = $(shell find about/ -type f -name '*.md' -a ! -path '*_*')
 POSTS = $(shell find posts/ -type f -name '*.md' -a ! -path '*_*')
 MENUS = $(shell find -name 'index.*' -a ! -path '*_*') \
@@ -18,10 +15,10 @@ PAGES = $(ABOUT) $(POSTS) $(MENUS)
 
 # Dependencies
 # TODO: Shorten this into a line
-$(TARG)/posts/craft/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/craft/*.html))
-$(TARG)/posts/learn/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/learn/*.html))
-$(TARG)/posts/linux/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/linux/*.html))
-$(TARG)/posts/index.html: $(filter-out %/index.html, $(wildcard $(TARG)/posts/*/*.html $(TARG)/posts/*.html))
+$(TARG)/posts/craft/index.html: $(filter-out %/index.shtml, $(wildcard $(TARG)/posts/craft/*.shtml))
+$(TARG)/posts/learn/index.html: $(filter-out %/index.shtml, $(wildcard $(TARG)/posts/learn/*.shtml))
+$(TARG)/posts/linux/index.html: $(filter-out %/index.shtml, $(wildcard $(TARG)/posts/linux/*.shtml))
+$(TARG)/posts/index.html: $(filter-out %/index.shtml, $(wildcard $(TARG)/posts/*/*.shtml $(TARG)/posts/*.shtml))
 
 # TODO: When there is a new file, the navigation bar should be updated (affect posts/about)
 $(addprefix $(TARG)/, $(POSTS:.md=.html)): posts/_www/config lay/post.dhtml # TODO: find _www/config
