@@ -9,16 +9,16 @@ cat <<EOF
 <title>Pickfire ${1##*/}</title>
 <description>Pick fire if you dare! hahaha</description>
 <link>${SITE}/${1}/rss.xml</link>
-<pubDate>$(TZ='UTC' date -Ru)</pubDate>
+<pubDate>$(date -u +'%a, %d %b %Y %T %z')</pubDate>
 EOF
 
-for i in $(find ${1} -type f -name '*.md' -printf "%T@:%p\n"|grep -v '_\|index'\
-  |sort -r|cut -f2 -d:|head -n10); do
+for i in $(find ${1} -type f -name '*.md'|xargs stat -t|awk '{print $13,$1}' \
+  |grep -v '_\|index'|sort -r|cut -f2 -d' '|head -n10); do
   cat <<EOF
 <item>
 <title>$(grep '^[A-Z][a-z].*' ${i} | head -n1)</title>
 <link>${SITE}/${i%.md}</link>
-<pubDate>$(TZ='UTC' date -Rur ${i})</pubDate>
+pubDate>$(date -ud `stat -t ${i}|cut -f13 -d\ ` +'%a, %d %b %Y %T %z')</pubDate>
 <description><![CDATA[
 $(sed ':a;N;$!ba; s|.*<div id="main">\(.*\)</div>.*|\1|' ${TARG}/${i%.md}.html)
 ]]></description></item>

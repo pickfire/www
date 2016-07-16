@@ -1,4 +1,4 @@
 User-Agent: *
-Disallow: Ivan Tham
+Disallow: Spying
 
 Sitemap: http://pickfire.wha.la/sitemap.xml

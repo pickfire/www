@@ -74,10 +74,10 @@ Rule
 Need
 ----
 * cmark: <https://github.com/jgm/cmark> (A commonmark implementation in C)
-* mksh: <https://www.mirbsd.org/mksh.htm> (For a faster shell)
-* GNU coreutils: <http://www.gnu.org/software/coreutils>
-* GNU sed: <http://www.gnu.org/software/sed>
-* GNU grep: <http://www.gnu.org/software/grep/grep.html>
+* mksh: <https://www.mirbsd.org/mksh.htm> (More features compare to dash)
+* sbase/ubase: <http://core.suckless.org/> (½ faster than GNU coreutils)
+
+* Compatible with GNU coreutils/sed/grep (required modification to `date`, check `ea401dcb`)
 
 Tool
 ----

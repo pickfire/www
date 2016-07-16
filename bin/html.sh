@@ -12,7 +12,7 @@ abracadabra() {
   lay=$(cat $LAYOUT)
   body=${lay/'${CONTENT}'/${body:-${lay}}} # ${CONTENT} substitution
 
-  for i in $(grep -o '${[A-Z]*}' <<< ${body}); do # Variables: ${TITLE}
+  for i in $(tr '<> ' '\n' <<< ${body}|grep '${[A-Z]*}'); do # ${TITLE}
     j=$(eval echo $i)
     [ -n "$j" ] && body=${body//$i/${j//> </'>\n<'}}
   done

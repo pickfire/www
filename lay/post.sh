@@ -1,10 +1,11 @@
 LAYOUT=lay/menu.dhtml
-DATE=$(date -ur $forig)
+DATE=$(date -ud `stat -t $forig | cut -f 13 -d ' '`)
 
 d=${forig%/*}
+
 l=$(while p=$(realpath $PWD/$d); [ $PWD != $p ]; do
   echo $p/*; d+=/..
-done | xargs ls -Fd | grep -v '_\|index\|img')
+done | xargs ls -Fd | grep -v 'index\|_' | grep '.md$\|.shtml$\|/$')
 
 NAV=$(for i in ${l}; do
   i=${i#*${forig%%/*}}; i=${i%.*}          # Remove base and extension
