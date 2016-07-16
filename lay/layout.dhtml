@@ -21,9 +21,9 @@
         ${MENU}
       </span>
       <span class="right">
-        <a href="http://dl.pickfire.wha.la"><img src="/pub/dl.svg"/> Download</a>
-        <a href="http://git.pickfire.wha.la"> Git</a>
-        <a id="tor" href="http://pickfireywcq2wf2.onion/"> Tor</a>
+        <a href="http://dl.pickfire.wha.la"><img src="/pub/dl.svg"/>Download</a>
+        <a href="http://git.pickfire.wha.la">Git</a>
+        <a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
         <script>
 if (document.getElementById('tor').style.color == "#008700 !important") {
   document.getElementById('tor').style.color = "#d75f00 !important";
