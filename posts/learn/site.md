@@ -31,8 +31,29 @@ Virtual hosting
 ---------------
 http://nginx.org/en/docs/http/request_processing.html
 
-Dynamic DNS service
-===================
+DNS setup
+=========
+Aha, free sites
+
+DOT.TK
+------
+Get my domain pickfire.tk here
+
+NSD DNS server
+--------------
+I use nsd authoritative-only dns server in conjunction with dnsmasq.
+
+https://www.digitalocean.com/community/tutorials/how-to-use-nsd-an-authoritative-only-dns-server-on-ubuntu-14-04
+
+Zone file
+---------
+
+Backup DNS
+----------
+Planning to use afraid.org
+
+Dynamic DNS service (old setup)
+===============================
 I personally used changeip.com after signing up for a few dns service.
 
 Port forwarding
