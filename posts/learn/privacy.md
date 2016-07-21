@@ -14,9 +14,14 @@ rhymes with hacker or robber). Who knows?
 Use Tor
 =======
 
-Tor + Polipo
-------------
-Setup tor and polipo.
+Tor + Privoxy
+-------------
+I used this, working so bad so far, always pops out downloads in surf. Hopes
+Polipo can filter which to site that is needed to be proxied.
+
+Tor + Polipo (old)
+------------------
+I had dump Polipo since it must proxy everything to Tor. Setup Tor and Polipo.
 
 Filter useless ads
 ------------------
@@ -31,23 +36,23 @@ Use Encryption
 
 Pretty Good Privacy (PGP)
 -------------------------
-gpg
+GPG
 
 ### Mutt
-Mutt build-in gpg support, require gpgme
+Mutt build-in GPG support, require GPGME
 
 Block-based Encryption
 ----------------------
-dmcrypt + luks
+dm-crypt + LUKS
 
 File-based Encryption
 ---------------------
-encfs
+EncFS
 
 Use encrypted connection
 ------------------------
-If possible use, encrypted connection such as https, smtps, imaps.
-text file, analyze with tcpdump or wireshark.
+If possible use, encrypted connection such as HTTPS, SMTPS, IMAPS.
+Analyze with `tshark`.
 
 Don't delete, shred files instead
 ---------------------------------
@@ -56,7 +61,7 @@ shred -xu
 Misc
 ====
 
-rot13
+ROT13
 -----
     tr 'A-Za-z' 'N-ZA-Mn-za-m'
 

@@ -13,7 +13,7 @@ Ambidextrous
 ============
 ##### **Note: This method that I am using won't work for chinese characters**
 
-One hand for (what rhymes with performance), two hands for performance.  
+One hand for (what rhymes with performance), two hands for performance.
 Writing with two hands can have huge performance gain, just make sure you
 practise it once in a while.
 
@@ -35,8 +35,20 @@ Refresh your mind and purify your soul. Do only (and nothing else):
 2. Breathe
 3. Breathe
 
-A simple technique, do count from 10 to 1 and recount from 10 to 1.  
+A simple technique, do count from 10 to 1 and recount from 10 to 1.
 A harder technique, do visualise yourself in a white dimension, safe and sound.
+
+Rapid Reading
+=============
+How to get from reading 200 words per minute to 500+ words per minutes
+
+- Reduce distraction, it is better to close your ears when you read
+- Move your eyes slowly, if you can't use your finger as a pointer
+- Avoid sub-vocalization
+  - do not `see -> hear -> understand`
+  - instead `see -> understand`
+- Avoid regression - don't read the word "Avoid regression" again
+- Read words in chunk, eg. "read all of these words in chunk"
 
 Day of Week
 ===========

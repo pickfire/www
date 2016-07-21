@@ -1,7 +1,9 @@
 Hosts-Blocking as an Ad-Block Alternative
 =========================================
 
-https://github.com/StevenBlack/hosts  
+This is abandoned now.
+
+https://github.com/StevenBlack/hosts
 https://github.com/gaenserich/hostsblock
 
 Those two projects have nice idea and have pros and cons, now I really hope to

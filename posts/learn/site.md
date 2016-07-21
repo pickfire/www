@@ -52,6 +52,10 @@ Backup DNS
 ----------
 Planning to use afraid.org
 
+Iptables
+--------
+Redirect requests to NSD since MX records aren't working.
+
 Dynamic DNS service (old setup)
 ===============================
 I personally used changeip.com after signing up for a few dns service.

@@ -1,6 +1,6 @@
 Simple Tools for Development Environment
 ========================================
-Setting up a development environment
+Development environment accustomed to me. <//git.pickfire.tk/dotfiles>
 
 Window Manager
 --------------
@@ -9,7 +9,9 @@ Tiling window manager, [dwm][dwm]
 ### dwmstatus
 
 Simple status bar for [dwm][dwm], not click-able, not colour-able. Use a simple
-C script to lower the processing cost as it runs every second.
+C script to lower the processing cost as it runs every second. Current status:
+
+    ♪ 100% ⚡ AC │ ↓ 1.2k ↓ 0 │ / 80% ~ 70% │ 0.12 │ Mon Fed 28 00:00:00
 
 [dwm]: //dwm.suckless.org
 
