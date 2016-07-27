@@ -3,4 +3,4 @@ TITLE=$(grep '^[A-Z][a-z].*' $forig | head -n1)
 LINK=Posts
 SUB="Embrace the Unknown"
 base=${forig%/*}
-HEAD="<link href=/$base/atom.xml type=application/atom+xml rel=alternate title=\"Pickfire ${base#*/} ATOM Feed\">\n<link href=/$base/atom.xml type=application/rss+xml rel=alternate title=\"Pickfire ${base#*/}) RSS Feed\">"
+HEAD="<link href=/$base/atom.xml type=application/atom+xml rel=alternate title=\"Pickfire ${base#*/} ATOM Feed\">\n<link href=/$base/atom.xml type=application/rss+xml rel=alternate title=\"Pickfire ${base#*/} RSS Feed\">"

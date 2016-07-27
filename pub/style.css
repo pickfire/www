@@ -54,13 +54,7 @@ footer {
 #fire:hover		{ background-position:-40px 0; }
 #fire:active	{ background-position:-80px 0; } /* }}} */
 
-/* Content {{{ */
-#main {
-	margin: 0 1em;
-	padding: 1px 3px 6ex;
-	max-width: 75em;
-}
-
+/* Menu {{{ */
 #menu {
 	overflow: hidden;
 	background-color: #e4e4e4;
@@ -81,6 +75,30 @@ footer {
 #nav a:hover,
 #main a:hover {
 	background-color: #e4e4e4;
+}
+
+#tor:after {
+	display: none;
+	position: relative;
+	right: 0;
+	top: 100%;
+	text-align: center;
+	border-radius: 2px;
+}
+
+#tor:hover:after {
+	display: block;
+}
+
+#tor:after {
+	content: "Not using Tor!";
+} /* }}} */
+
+/* Content {{{ */
+#main {
+	margin: 0 1em;
+	padding: 1px 3px 6ex;
+	max-width: 75em;
 }
 
 footer a:hover {

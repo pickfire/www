@@ -3,9 +3,9 @@
 <html>
   <head>
     <title>${TITLE}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="robots" content="noindex,follow"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="charset=utf-8">
+    <meta name="description" content="Pickfire's happy website by itself">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/pub/normalize.css"/>
     <link rel="stylesheet" href="/pub/style.css"/>
     <link rel="stylesheet" href="/tor"/>
