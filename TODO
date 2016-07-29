@@ -1,1 +1,3 @@
 - A web version of sent without javascript
+- Fix the Tor check dropdown bug
+- Use domain name, www/pickfire.tk/* -> www/*

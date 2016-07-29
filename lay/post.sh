@@ -5,7 +5,7 @@ d=${forig%/*}
 
 l=$(while p=$(realpath $PWD/$d); [ $PWD != $p ]; do
   echo $p/*; d+=/..
-done | xargs ls -Fd | grep -v 'index\|_' | grep -E '.md$|.shtml$|/$')
+done | xargs ls -Fd | grep -v 'img\|index\|_' | grep -E '.md$|.shtml$|/$')
 
 NAV=$(for i in ${l}; do
   i=${i#*${forig%%/*}}; i=${i%.*}          # Remove base and extension

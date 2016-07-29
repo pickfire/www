@@ -7,7 +7,7 @@ Always remember:
 
 Time tracking
 =============
-Pomodoro Timer™, http://git.pickfire.wha.la/spt
+Pomodoro Timer™, //git.pickfire.tk/spt
 
 Ambidextrous
 ============

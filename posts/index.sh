@@ -1,7 +1,6 @@
 TITLE="Posts"
 SUB="Expect the Unseen"
 HEAD+='<link rel=stylesheet href="/pub/time.css">'
-source config.sh
 
 for i in $(find ${forig%/*} -name '*.md' -type f|xargs stat -t|awk '{print $13,$1}' \
   |grep -v '_\|index\|.sh$'|sort -r|cut -f2 -d' '|sed 's/\.md//'); do

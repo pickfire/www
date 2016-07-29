@@ -6,7 +6,6 @@
     <meta content="charset=utf-8">
     <meta name="description" content="Pickfire's happy website by itself">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/pub/normalize.css"/>
     <link rel="stylesheet" href="/pub/style.css"/>
     <link rel="stylesheet" href="/tor"/>
     ${HEAD}
@@ -21,8 +20,16 @@
         ${MENU}
       </span>
       <span class="right">
-        <a href="http://dl.pickfire.wha.la"><img src="/pub/dl.svg"/>Download</a>
-        <a href="http://git.pickfire.wha.la">Git</a>
+        <a href="//dl.${SITE}">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+            <path d="m1 17v3h18v-3z"/>
+            <path d="m0 13L2 7l5 9z"/>
+            <path d="m9 15L3 3L8 0z"/>
+            <path d="m11 15L12 0l5 3z"/>
+            <path d="m13 16l5-9l2 6z"/>
+          </svg>
+        </a>
+        <a href="//git.${SITE}">Git</a>
         <a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
         <script>
 if (document.getElementById('tor').style.color == "#008700 !important") {
@@ -39,10 +46,7 @@ if (document.getElementById('tor').style.color == "#008700 !important") {
     </div>
     <footer>
       <span class="right">
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-          <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
-        </a>
-        By <a href='/about/contact'>Ivan Tham</a>
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>&ensp;<a href="/about/contact">Ivan Tham</a>
       </span>
     </footer>
   </body>

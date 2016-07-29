@@ -9,7 +9,7 @@ MENUS := $(shell find * -name 'index.*' -a ! -path '*_*') \
 	$(wildcard [0-9]*.md [0-9]*.shtml)
 FEEDS := $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml \
 	$(patsubst %, %rss.xml, $(dir $(POSTS))) posts/rss.xml
-EXTRA := $(shell find * \( -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.svg' -o -name '*.txt' -o -name '*.css' \) -a ! -path '*_*')
+EXTRA := $(shell find * \( -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.svg' -o -name '*.ico' -o -name '*.txt' -o -name '*.css' \) -a ! -path '*_*')
 PAGES := $(ABOUT) $(POSTS) $(MENUS)
 
 # Requirements

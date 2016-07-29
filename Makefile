@@ -3,7 +3,7 @@ include config.mk
 all: $(OUTPUT) map gzip
 
 check: $(TARG) bin/check.sh
-	bin/check.sh $</*
+	find $(TARG) | sed "s|$(TARG)/|http://$(SITE)/|; s|:|%3A|; s|/|%2F|g" | xargs -x bin/check.sh
 	wget --no-proxy --spider -r -nH -nd -np -nv -p $(SITE)
 
 clean:
@@ -14,7 +14,7 @@ map: bin/map.sh $(filter %.html, $(OUTPUT))
 
 gzip: $(addsuffix .gz, $(filter %.html %.xml %.txt %.css %.svg, $(OUTPUT)))
 
-push: all
+sync: all
 	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
 
 $(TARG)/%.html: %.shtml %.* bin/html.sh $(LAYERS) # TODO: Merge with the one below

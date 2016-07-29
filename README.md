@@ -53,7 +53,9 @@ The installation is simple, just make this your site:
 git clone https://github.com/pickfire/sssg --depth 1
 rm -rf sssg/.git
 ```
-Configurations can be done by editing `html.sh`, `atom.sh` and `config.mk`.
+Configurations can be done by editing `config.sh` and `config.mk`.
+
+`dyn/tor` needs to be manually linked to /srv/tor which uses uwsgi.
 
 Rule
 ----
@@ -90,7 +92,7 @@ Help
 - Personal help -> Email pickfire@riseup.net
 - [Issue Tracker](https://github.com/pickfire/sssg/issues)
 - [Pull Requests](https://github.com/pickfire/sssg/pulls)
-- [Source code](http://git.pickfire.wha.la/sssg) ([Mirror](https://github.com/pickfire/sssg))
+- [Source code](http://git.pickfire.tk/sssg) ([Mirror](https://github.com/pickfire/sssg))
 
 Inspiration
 -----------
@@ -102,6 +104,8 @@ Inspiration
   code minimal
 * [YAML frontmatter](https://jekyllrb.com/docs/frontmatter/) that enhance the
   features of a site generator
+* [Device Ready](https://deviceready.net/building-with-make) such a small
+  beautiful site
 
 Alternative
 -----------
@@ -110,5 +114,5 @@ Alternative
 
 Implementation
 --------------
-* [Pickfire's site](http://pickfire.wha.la/) ([Mirror](http://pickfire.github.io/))
+* [Pickfire's site](http://pickfire.tk/) ([Mirror](http://pickfire.github.io/))
 * **Add your site here**

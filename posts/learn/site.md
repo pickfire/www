@@ -56,6 +56,14 @@ Iptables
 --------
 Redirect requests to NSD since MX records aren't working.
 
+### Open DNS
+
+Using this setup, people could just spoof udp request and use the server as a
+bot to ddos other servers. To solve this fast, I did this myself without my
+father's help (slow), so I did add an iptables rule. external:53 -> internal:5353
+
+    iptables -t nat -A PREROUTING -s 192.168.1.0/24 -p udp -m udp --dport 53 -j DNAT --to 127.0.0.1:5353
+
 Dynamic DNS service (old setup)
 ===============================
 I personally used changeip.com after signing up for a few dns service.

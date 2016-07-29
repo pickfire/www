@@ -1,0 +1,2 @@
+python-dateutil==2.1
+stem==1.4.1

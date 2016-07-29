@@ -4,10 +4,9 @@ Development environment accustomed to me. <//git.pickfire.tk/dotfiles>
 
 Window Manager
 --------------
-Tiling window manager, [dwm][dwm]
+Tiling window manager, I like [dwm][dwm].
 
 ### dwmstatus
-
 Simple status bar for [dwm][dwm], not click-able, not colour-able. Use a simple
 C script to lower the processing cost as it runs every second. Current status:
 
@@ -18,7 +17,7 @@ C script to lower the processing cost as it runs every second. Current status:
 Terminal
 --------
 I use [st](//st.suckless.org) as it is fast and support true colors (my
-ultimate motive). I use it with solarized (base16).
+ultimate motive).
 
 Editor
 ------

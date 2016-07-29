@@ -1,4 +1,4 @@
 User-Agent: *
 Disallow: Spying
 
-Sitemap: http://pickfire.wha.la/sitemap.xml
+Sitemap: http://pickfire.tk/sitemap.xml

@@ -11,7 +11,7 @@ the [inkscape editor](https://inkscape.org/) to do this task.
 
 [r]: https://en.wikipedia.org/wiki/Raster_graphics
 [v]: https://en.wikipedia.org/wiki/Vector_graphics
-[f]: http://dl.pickfire.wha.la/usr/img/ofish.svg
+[f]: //dl.pickfire.tk/usr/img/ofish.svg
 
 Getting started
 ---------------
@@ -69,4 +69,4 @@ The final farewell
    - **Remove XML indentation** and tons of stuff to keep it **minimal**.
 5. **_TADA_ Work done!**
 
-[i4]: http://dl.pickfire.wha.la/usr/img/fisherman.svg
+[i4]: //dl.pickfire.tk/usr/img/fisherman.svg

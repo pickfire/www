@@ -1,6 +1,6 @@
 #!/usr/bin/env mksh
 # Usage: html.sh file
-
+source config.sh
 # Constants - Use $var, Globals - Use ${var}
 forig=${1} # Original file (for scripts)
 conf=_www/config
