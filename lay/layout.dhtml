@@ -31,13 +31,6 @@
         </a>
         <a href="//git.${SITE}">Git</a>
         <a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
-        <script>
-if (document.getElementById('tor').style.color == "#008700 !important") {
-  document.getElementById('tor').style.color = "#d75f00 !important";
-} else {
-  document.getElementById('tor').style.color = "#df0000 !important";
-}
-        </script>
       </span>
     </div>
     <div id="nav">${NAV}</div>
@@ -49,5 +42,12 @@ if (document.getElementById('tor').style.color == "#008700 !important") {
         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>&ensp;<a href="/about/contact">Ivan Tham</a>
       </span>
     </footer>
+    <script>
+if (document.getElementById('tor').style.color == "#008700 !important") {
+  document.getElementById('tor').style.color = "#d75f00 !important";
+} else {
+  document.getElementById('tor').style.color = "#df0000 !important";
+}
+    </script>
   </body>
 </html>
