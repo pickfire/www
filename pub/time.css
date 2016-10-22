@@ -1,4 +1,4 @@
-#main a {
+main a {
 	display: block;
 	padding: 1px 1ex;
 	margin: 1ex -1ex;
@@ -7,19 +7,19 @@
 	transition: all .1s ease-out;
 }
 
-#main a * {
+main a * {
 	margin: 0;
 }
 
-#main a:nth-child(even) {
+main a:nth-child(even) {
 	background-color: #eee;
 }
 
-#main .date {
+main .date {
 	color: #555;
 	font: lighter 60% serif;
 }
 
-#main a:hover {
+main a:hover {
 	background-color: #ddd;
 }

@@ -1,0 +1,9 @@
+! This page is still in development
+
+<p>
+  <audio src="/pub/beep.ogg" autoplay loop>Beep!</audio>
+  <img src="/pub/spt.gif" width="100" height="100" style="image-rendering: pixelated;">
+  <a href="http://sssg.pickfire.tk/">Simple Static Site Generator</a>
+  Might be removing this since it there are lots of shells and utils.
+  And because the build system can't handle new or removed files.
+</p>

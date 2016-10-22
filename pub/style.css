@@ -1,51 +1,23 @@
-/* Normalize min. 2016-07-30 {{{ */
-html {
-	font-family: sans-serif;
-}
-
-body {
-	margin: 0;
-}
-
-/* remove outline on focused links */
-a:active,
-a:hover {
-	outline-width: 0;
-}
-
-abbr[title] {
-	border-bottom: none;
-	text-decoration: underline;
-} /* }}} */
-
 /* Building blocks {{{ */
-* {
-	box-sizing: border-box;
-}
-
 html {
 	height: 100%;
-	margin: 0;
-	padding: 0;
 }
 
 body {
 	position: relative;
+	margin: 0; /* normalize */
 	min-height: 100%;
 	color: #444;
 	background-color: #f5f5f5;
+	font-family: sans-serif;
 }
 
 header {
-	padding: 3px 5px;
-	font-size: 200%;
+	padding: 5px 15px;
+	font-size: 250%;
 	color: #3a3a3a; background-color: #e4e4e4;
 	text-shadow: 2px 1px #ccc;
 	border-top: 2px solid #444;
-}
-
-header #info {
-	display: none;
 }
 
 footer {
@@ -64,7 +36,7 @@ footer {
 /* Animated Logo {{{ */
 #fire {
 	display: inline-block;
-	margin: 0 5px -3px 0;
+	margin: 0 5px 5px 0;
 	width: 40px;
 	height: 40px;
 	text-indent: -999em;
@@ -77,48 +49,33 @@ footer {
 } /* }}} */
 
 /* Menu {{{ */
-#menu {
+menu {
+	margin: 0; /* fix the default menu margin & padding */
+	padding: 0;
 	overflow: hidden;
 	background-color: #e4e4e4;
 	font-size: 1.6em;
 }
 
-#menu a {
+menu a {
 	padding: 1px 1ex;
 	color: #444;
 	transition: all .1s ease;
 }
 
-#menu #here,
-#menu a:hover {
+menu #here,
+menu a:hover {
 	background-color: #f5f5f5;
 }
 
-#nav a:hover,
-#main a:hover {
+nav a:hover,
+main a:hover {
 	background-color: #e4e4e4;
-}
-
-#tor:after {
-	display: none;
-	position: relative;
-	right: 0;
-	top: 100%;
-	text-align: center;
-	border-radius: 2px;
-}
-
-#tor:hover:after {
-	display: block;
-}
-
-#tor:after {
-	content: "Not using Tor!";
 } /* }}} */
 
 /* Content {{{ */
-#main {
-	margin: 0 1em;
+main {
+	margin: 1em 3% 0 calc(13em + 2%);
 	padding: 1px 3px 6ex;
 	max-width: 75em;
 }
@@ -127,7 +84,7 @@ footer a:hover {
 	text-decoration: underline;
 }
 
-#main img {
+main img {
 	max-width: 100%;
 	max-height: 100%;
 } /* }}} */
@@ -160,8 +117,13 @@ pre {
 	border: 1px solid;
 }
 
+/* normalize */
+abbr[title] {
+	border-bottom: 1px dotted blue;
+	text-decoration: none;
+}
+
 blockquote {
-	margin: 0;
 	padding: 0 1em;
 	color: #616161;
 	overflow: auto;
@@ -182,76 +144,69 @@ blockquote {
 } /* }}} */
 
 /* Navigation bar {{{ */
-#nav {
-		float: left;
-		width: 200px;
+nav {
+	float: left;
+	width: 200px;
 	margin: 1px 1px 5px;
 	padding: 1em 0;
-	clear: both;
-		border-right: 1px dotted #ccc;
+	border-right: 1px dotted #ccc;
 }
 
-#nav ul,
-#nav li {
+nav ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#nav li ul {
+nav li ul {
 	padding-left: .6em !important;
 }
 
-#nav li a {
+nav li a {
 	display: block;
 	color: #444;
 	padding: 7px 2em 7px 1em;
 }
 
-#nav a.site {
+nav a.site {
 	color: #3a3a3a;
 	font-weight: bold;
 }
 
-#nav a.site:nth-last-child(1) {
+nav a.site:nth-last-child(1) {
 	font-weight: #fff;
 }
 
 @media only screen and (max-width: 600px) { /* TODO: Reverse this to make it mobile-first */
-	#nav {
+	nav {
 		float: none;
 		width: 100%;
 	border-right: none;
 	}
 
-	#nav li {
+	nav li {
 		display: none;
 	}
 
-	#nav li.site { /* TODO: use :last-child */
+	nav li.site { /* TODO: use :last-child */
 		display: block;
 	}
 
-	#nav ul:hover li {
+	nav ul:hover li {
 		display: block;
 	}
 } /* }}} */
 
 /* Mobile-friendly {{{ */
-@media only screen and (min-width: 600px) {
-	header {
-		padding: 5px 15px;
-		font-size: 250%;
-	}
-
+@media only screen and (max-width: 600px) {
+	nav, /* need some fix for nav on mobile */
 	header #info {
-		display: inline;
+		display: none;
 	}
 
-	#main {
-		margin: 1em 3% 0 calc(13em + 2%);
+	main {
+		margin: 0 1ex;
 	}
-}
-/* }}} */
+} /* }}} */
 
 /* vim:set ai sw=4 ts=4 fdm=marker: */
