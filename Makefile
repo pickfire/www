@@ -1,6 +1,6 @@
 include config.mk
 
-all: $(OUTPUT) map gzip
+all: $(wildcard config.*) $(OUTPUT) map gzip
 
 check: $(TARG) bin/check.sh
 	find $(TARG) | sed "s|$(TARG)/|http://$(SITE)/|; s|:|%3A|; s|/|%2F|g" | xargs -x bin/check.sh

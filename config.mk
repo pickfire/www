@@ -1,6 +1,6 @@
 include config.sh
 SXML  = | sed ':a;N;$$!ba;s/>\s*</></g'
-PATH := $(HOME)/src/sbase:$(HOME)/src/ubase:/usr/bin
+PATH := $(HOME)/src/sl/sbase:$(HOME)/src/sl/ubase:/usr/bin
 
 # Source files
 ABOUT := $(shell find about/ -type f \( -name '*.md' -o -name '*.shtml' \) -a ! -path '*_*')
