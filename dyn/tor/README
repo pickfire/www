@@ -1,0 +1,15 @@
+README
+------
+
+Check if the client is using Tor by using Tor's microdescriptors and return a
+css file. `torcheck.py` is the prototype which uses uwsgi. `torcheck.c` take
+over the wsgi script by using CGI with FastCGI.
+
+Cronjob to update the Tor's microdescriptors:
+
+    0 * * * * /usr/local/bin/torlist.sh
+
+`update.py` is the prototype to parse the microdescriptors which is superseeded
+by `update.c`. It is used with `wget` (mirror site) in `torlist.sh`.
+
+Run `make` to build `torcheck` and `torlist`.

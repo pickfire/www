@@ -2,7 +2,6 @@
  * Update the tor exit lists
  * Usage: ./update | sort -n | uniq > exits.txt
  */
-
 #include <stdio.h>
 #include <unistd.h>
 #include <dirent.h>
