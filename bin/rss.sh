@@ -1,4 +1,4 @@
-#!/usr/bin/env mksh
+#!/bin/mksh
 # Usage: rss.sh files (index.html won't be included)
 source config.sh
 

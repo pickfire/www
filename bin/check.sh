@@ -1,4 +1,4 @@
-#!/usr/bin/env mksh
+#!/bin/mksh
 # Usage: check.sh file(s)
 source config.sh
 

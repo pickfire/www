@@ -1,4 +1,4 @@
-#!/usr/bin/env mksh
+#!/bin/mksh
 # Usage: map.sh
 source config.sh
 

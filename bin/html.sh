@@ -1,4 +1,4 @@
-#!/usr/bin/env mksh
+#!/bin/mksh
 # Usage: html.sh file
 source config.sh
 # Constants - Use $var, Globals - Use ${var}

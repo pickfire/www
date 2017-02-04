@@ -1,4 +1,4 @@
-#!/usr/bin/mksh
+#!/bin/mksh
 # Usage: css.sh file
 
 sed -e '
