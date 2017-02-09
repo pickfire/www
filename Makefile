@@ -3,8 +3,8 @@ include config.mk
 all: $(wildcard config.*) $(OUTPUT) map gzip
 
 check: $(TARG) bin/check.sh
-	find $(TARG) | sed "s|$(TARG)/|http://$(SITE)/|; s|:|%3A|; s|/|%2F|g" | xargs -x bin/check.sh
 	wget --no-proxy --spider -r -nH -nd -np -nv -p $(SITE)
+	find $(TARG) | sed "s|$(TARG)/|http://$(SITE)/|; s|:|%3A|; s|/|%2F|g" | xargs -x bin/check.sh
 
 clean:
 	rm -rf $(TARG)/*
@@ -42,7 +42,6 @@ $(TARG)/%: %
 	cp $< $@
 
 $(TARG)/%.gz: $(TARG)/%
-	@test `stat -t $<|cut -f2 -d\ ` -gt 200 && gzip -9kf $< > $@ ||:
+	@test `stat -t $<|cut -f2 -d\ ` -gt 200 && gzip -9cf $< > $@ ||:
 
-.PHONY = all check clean map gzip push
-.DEFAULT_GOAL = all
+.PHONY: all check clean map gzip sync

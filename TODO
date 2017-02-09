@@ -1,4 +1,3 @@
-! Removed the need to make clean
+! Removed the need to make clean (new file)
 - A web version of sent without javascript
-- Fix the Tor check dropdown bug
-- Use domain name, www/pickfire.tk/* -> www/*
+- Add compatibility for date between gnu, busybox and sbase

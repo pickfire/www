@@ -1,5 +1,5 @@
 LAYOUT=lay/menu.dhtml
-DATE=$(date -ud `stat -t $forig | cut -f 13 -d ' '`)
+DATE=$(date -ud @`stat -t $forig | cut -f 13 -d ' '`)
 
 d=${forig%/*}
 

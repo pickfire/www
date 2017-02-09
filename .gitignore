@@ -1,2 +1,4 @@
-./_*
+/_*
 __pycache__
+dyn/tor/torcheck
+dyn/tor/update

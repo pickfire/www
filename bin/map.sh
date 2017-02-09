@@ -9,4 +9,5 @@ $( (find ${TARG} -name '*.html' | sed "s|${TARG}|${SITE}|" | tee ${TARG}/urllist
 </urlset>
 EOF
 
-gzip -9kf ${TARG}/urllist.txt ${TARG}/sitemap.xml
+gzip -9c ${TARG}/urllist.txt > ${TARG}/urllist.txt.gz
+gzip -9c ${TARG}/sitemap.xml > ${TARG}/sitemap.xml.gz
