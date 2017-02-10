@@ -42,10 +42,12 @@ Why switch to coreboot? Default firmware took 8s to boot. Now `x < 2s`. Haha!
 4. (Optional) Cleaning up me.bin
 
    1. More info available at [nroach44][nr02]
-   2. `util/me_cleaner/me_cleaner.py build/coreboot.bin`
-   3. (Optional) Verify `util/intelmetool/intelmetool -s`
-      shows "Firmware Init Complete" as "NO"
-   4. To proceed, `util/me_cleaner/me_cleaner.py me.bin` and rebuild.
+   2. Necessary: `util/me_cleaner/me_cleaner.py build/coreboot.bin`
+   3. (Optional) Verify that `util/intelmetool/intelmetool -s` show
+      output "Firmware Init Complete" as "NO"
+   4. To proceed - `util/me_cleaner/me_cleaner.py me.bin` and `make`
+   5. `hexdump me.bin` and check last byte which have tons of `ffff`
+   6. `dd if=me.bin of=truc.bin bs=1 count=$(printf '%d' 0x00dbc90)`
 
 5. (Optional) Setting battery threshold
 
@@ -114,3 +116,9 @@ For how it is now, I will just draw an image:
     +------------------------+     +------------------------+             ^
     | /dev/sdb  119GB (root) |---->| /dev/mapper/p1 (crypt) |-------------+ 
     +------------------------+     +------------------------+              
+
+https://wiki.archlinux.org/index.php/GRUB/Tips_and_tricks
+https://www.gnu.org/software/grub/manual/grub.html#Security
+https://www.reddit.com/r/coreboot/comments/4uahg5/coreboot_on_x220_examples_of_grubcfg_with_support
+https://notabug.org/vimuser/libreboot/src/master/resources/grub/config
+https://www.coreboot.org/GRUB2#Security
