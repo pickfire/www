@@ -1,4 +1,4 @@
-LAYOUT=lay/post.dhtml
+LAYOUT=_lay/post.dhtml
 TITLE=$(basename ${forig%.*})
 TITLE=$(echo ${TITLE::1} | tr [a-z] [A-Z])${TITLE:1}
 LINK=About

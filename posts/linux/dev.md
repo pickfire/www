@@ -25,3 +25,4 @@ Editor
 
 [neovim](//neovim.org) as a stylish vi-editor with fast
 [vim-plug](https://github.com/junegunn/vim-plug) as the plugin manager.
+

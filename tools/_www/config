@@ -1,4 +1,4 @@
-LAYOUT=lay/menu.dhtml
+LAYOUT=_lay/menu.dhtml
 TITLE="Tools"
 LINK=Tools
 SUB="Empower the Users"

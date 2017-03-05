@@ -1,0 +1,15 @@
+README
+------
+Check if client is running Tor and return CSS file for indication.
+
+Cronjob to update the Tor's microdescriptors:
+
+    0 * * * * /usr/local/bin/torlist.sh
+
+- `update.c` parse microdescriptors, used with `wget --mirror` in `torlist.sh`
+- `torcheck.c` (FastCGI script) checks if client uses Tor & return a CSS file
+- Prototyped in python, check previous commits for `update.py` & `torcheck.py`
+
+Install
+-------
+Run `make` to build `torcheck` and `torlist`.

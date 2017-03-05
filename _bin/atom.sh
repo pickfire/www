@@ -24,7 +24,7 @@ for i in $(find ${1} -type f -name '*.md'|xargs stat -t|awk '{print $13,$1}' \
   <entry>
     <title>$(grep '^[A-Z][a-z].*' ${i} | head -n1)</title>
     <link href="${PROT}${SITE}/${i%.md}"/>
-    <updated>$(date -ud `stat -t ${i}|cut -f13 -d\ ` +%Y-%m-%dT%TZ)</updated>
+    <updated>$(date -ud @`stat -t ${i}|cut -f13 -d\ ` +%Y-%m-%dT%TZ)</updated>
     <content type="html">
       <![CDATA[$(sed ':a;N;$!ba; s|.*<main>\(.*\)</main>.*|\1|' ${TARG}/${i%.md}.html)]]>
     </content>

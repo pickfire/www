@@ -197,13 +197,37 @@ nav a.site:nth-last-child(1) {
 	}
 } /* }}} */
 
+/* Time Machine {{{ */
+#tm a {
+	display: block;
+	padding: 1px 1ex;
+	margin: 1ex -1ex;
+	color: #444;
+	font: 130% sans;
+	transition: all .1s ease-out;
+}
+
+#tm a * {
+	margin: 0;
+}
+
+#tm a:nth-child(even) {
+	background-color: #eee;
+}
+
+#tm .date {
+	color: #555;
+	font: lighter 60% serif;
+}
+
+#tm a:hover {
+	background-color: #ddd;
+}
+/* }}} */
+
 /* Mobile-friendly {{{ */
 @media only screen and (max-width: 600px) {
-	nav, /* need some fix for nav on mobile */
-	header #info {
-		display: none;
-	}
-
+	/* TODO: need some fix for nav on mobile */
 	main {
 		margin: 0 1ex;
 	}

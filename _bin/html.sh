@@ -19,7 +19,7 @@ abracadabra() {
 }
 
 d=${1%/*} # Greedy $conf sucker
-while [ $(dirname $PWD) != $(realpath $PWD/$d) ]; do
+while [ ${PWD%/*} != $(realpath $PWD/$d) ]; do # Check until rootdir
   source $PWD/$d/$conf 2>/dev/null && abracadabra $1 || d+=/..
 done
 

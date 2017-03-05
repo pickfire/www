@@ -1,4 +1,4 @@
-LAYOUT=lay/layout.dhtml
+LAYOUT=_lay/layout.dhtml
 TITLE="Pickfire if you dare. Hahaha"
 
 for i in $(grep -sH "^LINK=" */_www/config); do
