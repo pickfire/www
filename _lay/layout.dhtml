@@ -3,7 +3,6 @@
 <meta name="description" content="Pickfire's happy website by itself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/pub/style.css">
-<link rel="stylesheet" href="/tor">
 ${HEAD}
 </head>
 <body>
@@ -28,3 +27,4 @@ ${HEAD}
   <footer>
     <span class="right">
       <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>&ensp;<a href="/about/contact">Ivan Tham
+			<link rel="stylesheet" href="/tor">

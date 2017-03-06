@@ -1,6 +1,6 @@
 Simple Tools for Development Environment
 ========================================
-Development environment accustomed to me. <//git.pickfire.tk/dotfiles>
+Development environment accustomed to me. [pickfire's dotfiles](//git.pickfire.tk/dotfiles)
 
 Window Manager
 --------------
