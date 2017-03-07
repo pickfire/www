@@ -14,19 +14,23 @@ main(int argc, char *argv[])
 
 	printf("Content-Type:text/css\n\n"); /* HTTP Header */
 
-	ip = getenv("REMOTE_ADDR");
-	if (!strncat(ip, "\n", 16))
-		return 1;
+	if (strstr("pickfireywcq2wf2.onion", getenv("HOST")) != NULL)
+		tor = 1;
+	else {
+		ip = getenv("REMOTE_ADDR");
+		if (!strncat(ip, "\n", 16))
+			return 1;
 
-	if (!(fp = fopen(file, "r")))
-		return 1;
+		if (!(fp = fopen(file, "r")))
+			return 1;
 
-	while (fgets(buf, 16, fp))
-		if (!strncmp(buf, ip, 15)) {
-			tor = 1;
-			break;
-		}
-	fclose(fp);
+		while (fgets(buf, 16, fp))
+			if (!strncmp(buf, ip, 15)) {
+				tor = 1;
+				break;
+			}
+		fclose(fp);
+	}
 
 	printf("#tor{color:%s !important}", tor ? "#008700" : "#df0000");
 	return 0;
