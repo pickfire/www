@@ -28,4 +28,4 @@ $(TARG)/posts/index.html: $(filter-out %/index.shtml, $(wildcard $(TARG)/posts/*
 # TODO: When there is a new file, the navigation bar should be updated (affect posts/about)
 $(addprefix $(TARG)/, $(POSTS:.md=.html)): posts/_www/config _lay/post.dhtml # TODO: find _www/config
 
-$(TARG)/links/index.html.gz: ~/usr/doc/links.txt
+$(TARG)/links/index.html.gz: ~/usr/doc/note/links.txt

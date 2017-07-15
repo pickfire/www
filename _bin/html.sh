@@ -13,7 +13,7 @@ abracadabra() {
   body=${lay/'${CONTENT}'/${body:-${lay}}} # ${CONTENT} substitution
 
   for i in $(tr '<> ' '\n' <<< ${body}|grep '${[A-Z]*}'); do # ${TITLE}
-    j=$(eval echo $i)
+    j=$(eval echo \"$i\")
     [ -n "$j" ] && body=${body//$i/${j//> </'>\n<'}}
   done
 }

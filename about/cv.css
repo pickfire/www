@@ -1,8 +1,0 @@
-input { display: none; }
-input.xp + label { background: #000; color: #fff; }
-tr.x > td { display: block; }
-
-.xp:checked { display: block; background: #000; }
-
-table:hover tr { opacity: .5; }
-table:hover tr:hover { opacity: 1; }
