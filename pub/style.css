@@ -33,19 +33,22 @@ footer {
 	box-shadow: 0 -5px 1ex -1px rgba(0,0,0,.1)
 }/* }}} */
 
-/* Animated Logo {{{ */
+/* Header {{{ */
 #fire {
 	display: inline-block;
 	margin: 0 5px 5px 0;
 	width: 40px;
 	height: 40px;
-	text-indent: -999em;
+	text-indent: -9em;
 	background-image: url(/pub/fire.gif);
 }
 #fire:hover		{ background-position:-40px 0; }
-#fire:active	{
-	        filter: hue-rotate(90deg);
-	-webkit-filter: hue-rotate(90deg);
+#fire:active	{ filter: hue-rotate(90deg); }
+
+@media only screen and (max-width: 600px) {
+	#info {
+		display: none;
+	}
 } /* }}} */
 
 /* Menu {{{ */
@@ -173,19 +176,11 @@ nav a.site {
 	font-weight: bold;
 }
 
-nav a.site:nth-last-child(1) {
-	font-weight: #fff;
-}
-
 @media only screen and (max-width: 600px) { /* TODO: Reverse this to make it mobile-first */
 	nav {
 		float: none;
 		width: 100%;
 	border-right: none;
-	}
-
-	nav li {
-		display: none;
 	}
 
 	nav li.site { /* TODO: use :last-child */
