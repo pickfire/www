@@ -1,5 +1,5 @@
 README
-------
+======
 Check if client is running Tor and return CSS file for indication.
 
 Cronjob to update the Tor's microdescriptors:
@@ -13,3 +13,18 @@ Cronjob to update the Tor's microdescriptors:
 Install
 -------
 Run `make` to build `torcheck` and `torlist`.
+
+Configuration
+-------------
+Add the following to server block in nginx.conf.
+
+    location = /tor {
+        root           /srv/tor/check;
+        fastcgi_param  SCRIPT_FILENAME      $document_root/torcheck;
+        fastcgi_param  REMOTE_ADDR          $remote_addr;
+        fastcgi_param  HOST                 $host;
+        fastcgi_pass   unix:/run/fcgiwrap.sock;
+
+        add_header Cache-Control "no-store";
+        gzip       off;
+    }

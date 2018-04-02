@@ -3,7 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define file "/var/cache/dyn/exits.txt"
+#define TEXT "/var/cache/dyn/exits.txt"
+#define HOST "pickfireywcq2wf2.onion"
 
 int
 main(int argc, char *argv[])
@@ -14,16 +15,13 @@ main(int argc, char *argv[])
 
 	printf("Content-Type:text/css\n\n"); /* HTTP Header */
 
-	if (strstr("pickfireywcq2wf2.onion", getenv("HOST")) != NULL)
+	if (strstr(HOST, getenv("HOST")) != NULL)
 		tor = 1;
 	else {
-		ip = getenv("REMOTE_ADDR");
-		if (!strncat(ip, "\n", 16))
-			return 1;
+		ip = strncat(getenv("REMOTE_ADDR"), "\n", 15);
 
-		if (!(fp = fopen(file, "r")))
+		if (!(fp = fopen(TEXT, "r")))
 			return 1;
-
 		while (fgets(buf, 16, fp))
 			if (!strncmp(buf, ip, 15)) {
 				tor = 1;

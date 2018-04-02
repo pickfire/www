@@ -1,4 +1,4 @@
 /_site
 __pycache__
-dyn/tor/torcheck
-dyn/tor/update
+_dyn/tor/torcheck
+_dyn/tor/update
