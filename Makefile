@@ -3,8 +3,8 @@ include config.mk
 all: $(wildcard config.*) $(OUTPUT) map gzip
 
 check: $(TARG) _bin/check.sh
-	wget --no-proxy --spider -r -nH -nd -np -nv -p $(SITE)
-	find $(TARG) | sed "s|$(TARG)/|http://$(SITE)/|; s|:|%3A|; s|/|%2F|g" | xargs -x _bin/check.sh
+	wget --no-proxy --spider -r -nH -nd -np -nv -p $(HOST)
+	find $(TARG) | sed "s|$(TARG)/|http://$(HOST)/|; s|:|%3A|; s|/|%2F|g" | xargs -x _bin/check.sh
 
 clean:
 	rm -rf $(TARG)/*

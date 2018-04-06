@@ -1,13 +1,12 @@
 #!/bin/mksh
 # Usage: html.sh file
-source config.sh
+. ./config.sh
 # Constants - Use $var, Globals - Use ${var}
-forig=${1} # Original file (for scripts)
-conf=_www/config
+FILE=${1} # Original file (for scripts)
 
 # Black magic, $1: file name (input)
 abracadabra() {
-  [ -f ${1%.*}.sh ] && source ${1%.*}.sh
+  [ -f ${1%.*}.sh ] && . ./${1%.*}.sh
 
   lay=$(cat $LAYOUT)
   body=${lay/'${CONTENT}'/${body:-${lay}}} # ${CONTENT} substitution
@@ -18,9 +17,9 @@ abracadabra() {
   done
 }
 
-d=${1%/*} # Greedy $conf sucker
+d=${1%/*} # Greedy _www/config sucker
 while [ ${PWD%/*} != $(realpath $PWD/$d) ]; do # Check until rootdir
-  source $PWD/$d/$conf 2>/dev/null && abracadabra $1 || d+=/..
+  source $PWD/$d/_www/config 2>/dev/null && abracadabra $1 || d+=/..
 done
 
 body="$([ ${1##*.} = 'md' ] && cmark $1 || cat $1)" # Markdown -> HTML

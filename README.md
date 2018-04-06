@@ -25,8 +25,8 @@ need to give it love and time like a wise man once spoken: [“先苦后甜”][
     |    _lay/main.sh    |    |    _lay/post.sh    |    |  post/_www/config  |
     +--------------------+    +--------------------+    +--------------------+
     |exit                |    |LAYOUT=_lay/main.dh+|    |LAYOUT=_lay/post.dh+|
-    +---------+----------+    |F=$forig            |    |DATE=$(date $forig) |
-              |               +---------+----------+    |T=$(head -n $forig) |
+    +---------+----------+    |F=$FILE             |    |DATE=$(date $FILE)  |
+              |               +---------+----------+    |T=$(head -n $FILE)  |
     +---------+----------+              |               +---------+----------+
     |   _lay/main.dhtml  |    +---------+----------+              |
     +--------------------+    |   _lay/post.dhtml  |    +---------+----------+

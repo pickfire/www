@@ -1,5 +1,6 @@
 <!doctype html>
 <title>${TITLE}</title>
+<meta charset="utf-8">
 <meta name="description" content="Pickfire's happy website by itself">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/pub/style.css">
@@ -13,8 +14,8 @@ ${HEAD}
     ${MENU}
   </span>
   <span class="right">
-    <a href="//dl.${SITE}">Dl</a>
-    <a href="//git.${SITE}">Git</a>
+    <a href="//dl.${HOST}">Dl</a>
+    <a href="//git.${HOST}">Git</a>
     <a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
   </span>
 </menu>

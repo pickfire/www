@@ -15,7 +15,7 @@ in a browser.
 
 ## How do I check for **link rot** directed to my site?
 
-Use `wget --no-proxy --spider -r -nH -nd -np -nv -e robots=off -p ${SITE}`,
+Use `wget --no-proxy --spider -r -nH -nd -np -nv -e robots=off -p ${HOST}`,
 note that this doesn't work on checking link directing to other domains.
 
 ## How do I build it together with a few slow computers (cluster computing)?

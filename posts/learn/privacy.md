@@ -25,7 +25,7 @@ I had dump Polipo since it must proxy everything to Tor. Setup Tor and Polipo.
 
 Filter useless ads
 ------------------
-/etc/polipo/forbidden
+/etc/polipo/forbidden with links from
 
 TorDNS + dnsmasq (cache)
 ------------------------
@@ -51,12 +51,14 @@ EncFS
 
 Use encrypted connection
 ------------------------
-If possible use, encrypted connection such as HTTPS, SMTPS, IMAPS.
-Analyze with `tshark`.
+If possible use, encrypted connection such as HTTPS, SMTPS, IMAPS. Analyze with
+`tshark` or `tcpdump`.
 
 Don't delete, shred files instead
 ---------------------------------
+```
 shred -xu
+```
 
 Misc
 ====
@@ -79,7 +81,3 @@ To easily generate a random passphrase using command line:
 
 What I did before this? I look it up online
 <https://duckduckgo.com/?q=random+passphrase>.
-
-Links
-=====
-leviathan

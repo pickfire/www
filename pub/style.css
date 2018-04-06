@@ -80,7 +80,7 @@ main a:hover {
 main {
 	margin: 1em 3% 0 calc(13em + 2%);
 	padding: 1px 3px 6ex;
-	max-width: 75em;
+	max-width: 50em;
 }
 
 footer a:hover {
