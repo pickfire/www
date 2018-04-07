@@ -1,6 +1,6 @@
 Infrastructure
 --------------
 
-Try verifying <a href="/${FILE}">this text</a>:
+Try verifying <a href="/${TEXT}">this text</a>:
 
     ${BODY}

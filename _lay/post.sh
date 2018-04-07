@@ -8,11 +8,12 @@ l=$(while p=$(realpath $PWD/$d); [ $PWD != $p ]; do
 done | xargs ls -Fd | grep -v 'img\|index\|_' | grep -E '.md$|.shtml$|/$')
 
 NAV=$(for i in ${l}; do
-  i=${i#*${FILE%%/*}}; i=${i%.*}           # Remove base and extension
-  y=${i%/[a-zA-Z]*}; z=${i#${y}}           # Split $i into $y + $z
-  x=$(echo $z | sed 's/.\(.\)/\u\1/')      # CamelCase
-  s="${y//\//'  '}-"; s="${s//[a-zA-Z]/}"  # Spacing tree "  -"
+  j=${i#*${FILE%%/*}}                      # Remove base
+  i=${j%.*}; z=${j#$i}; z=${z/.md/.html}   # Split extension $z
+  x=${i%/[a-zA-Z]*}; y=${i#${x}}           # Split $i into $x + $y
+  w=$(echo $y | sed 's/.\(.\)/\u\1/')      # CamelCase
+  s="${x//\//'  '}-"; s="${s//[a-zA-Z]/}"  # Spacing tree "  -"
   [ ${FILE#*${i}} != ${FILE} ] \
-    && echo "${s//[a-z]/} [_${x#/}_](/${FILE%%/*}${y}${z})" \
-    || echo "${s//[a-z]/} [${x}](/${FILE%%/*}${y}${z})"
+    && echo "${s//[a-y]/} [_${w#/}_](/${FILE%%/*}${x}${y}${z})" \
+    || echo "${s//[a-y]/} [${w}](/${FILE%%/*}${x}${y}${z})"
 done | cmark); NAV=${NAV//><em>/ class=site>}; NAV=${NAV//<\/em>/}

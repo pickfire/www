@@ -1,2 +1,2 @@
-FILE=pub/infra.txt
-BODY=$(cat $FILE)
+TEXT=pub/infra.txt
+BODY=$(cat $TEXT)
