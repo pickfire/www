@@ -2,3 +2,4 @@
 __pycache__
 _dyn/tor/torcheck
 _dyn/tor/update
+_dyn/tor/check.cgi

@@ -13,9 +13,7 @@ main(int argc, char *argv[])
 	char *ip, buf[16];
 	int tor = 0;
 
-	printf("Content-Type:text/css\n\n"); /* HTTP Header */
-
-	if (strstr(HOST, getenv("HOST")) != NULL)
+	if (strstr(HOST, getenv("SERVER_NAME")) != NULL)
 		tor = 1;
 	else {
 		ip = strncat(getenv("REMOTE_ADDR"), "\n", 15);
@@ -30,6 +28,7 @@ main(int argc, char *argv[])
 		fclose(fp);
 	}
 
-	printf("#tor{color:%s !important}", tor ? "#008700" : "#df0000");
+	printf("Content-type: text/css\r\n\r\n#tor{color:%s !important}",
+		tor ? "#008700" : "#df0000");
 	return 0;
 }
