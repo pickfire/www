@@ -1,6 +1,6 @@
 include config.mk
 
-all: $(wildcard config.*) $(OUTPUT) map gzip
+all: $(wildcard config.*) $(OUTPUT) map gzip brotli
 
 check: $(TARG) _bin/check.sh
 	wget --no-proxy --spider -r -nH -nd -np -nv -p $(HOST)
@@ -13,6 +13,8 @@ map: _bin/map.sh $(filter %.html, $(OUTPUT))
 	@_bin/map.sh
 
 gzip: $(addsuffix .gz, $(filter %.html %.xml %.txt %.css %.svg, $(OUTPUT)))
+
+brotli: $(addsuffix .br, $(filter %.html %.xml %.txt %.css %.svg, $(OUTPUT)))
 
 sync: all
 	@cd $(TARG) && git add . && git commit -qm ∞ --amend && git push -qf && echo $@
@@ -38,6 +40,9 @@ $(TARG)/%: %
 	cp $< $@
 
 $(TARG)/%.gz: $(TARG)/%
-	@test `stat -t $<|cut -f2 -d\ ` -gt 200 && gzip -9cf $< > $@ ||:
+	@gzip -9cf $< > $@
+
+$(TARG)/%.br: $(TARG)/%
+	@brotli -9cf $< > $@
 
 .PHONY: all check clean map gzip sync
