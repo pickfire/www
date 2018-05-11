@@ -3,8 +3,9 @@
 source config.sh
 
 # Track file and dir changes (make only track file changes)
-test -f ${TARG}/sitemap.xml -a -z "$(find ${TARG}/ -newer ${TARG}/sitemap.xml \
-	 \( -type f -name *.html -o -type d \) )" && return 0
+test -f ${TARG}/sitemap.xml \
+  && test -z "$(find ${TARG}/ -newer ${TARG}/sitemap.xml \
+    \( -type f -name *.html -o -type d \) )" && return 0
 
 cat > ${TARG}/sitemap.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?><urlset>

@@ -10,13 +10,9 @@ ${HEAD}
   <span><strong>${LINK}</strong><span id=info> - <em>${SUB}</em></span></span>
 </header>
 <menu>
-  <span class="left">
-    ${MENU}
-  </span>
+  <span class="left">${MENU}</span>
   <span class="right">
-    <a href="//dl.${HOST}">Dl</a>
-    <a href="//git.${HOST}">Git</a>
-    <a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
+    <a href="//dl.${HOST}">Dl</a>&nbsp;<a href="//git.${HOST}">Git</a>&nbsp;<a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
   </span>
 </menu>
 <nav>${NAV}</nav>
