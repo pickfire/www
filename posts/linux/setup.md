@@ -39,7 +39,7 @@ Why switch to coreboot? Default firmware took 8s to boot. Now `x < 2s`. Haha!
    4. Double click matching result, then extract body of `Raw section`
    5. (Optional) check word "VGA Display controller" with `romheaders`
 
-4. (Optional) Cleaning up me.bin
+4. (Optional) Cleaning up me.bin (now this option is in nconfig)
 
    1. More info available at [nroach44][nr02]
    2. Necessary: `util/me_cleaner/me_cleaner.py build/coreboot.bin`
@@ -66,7 +66,7 @@ Why switch to coreboot? Default firmware took 8s to boot. Now `x < 2s`. Haha!
    6. Extract the factory binary blob: `ifdtool -x orig.bin`
    7. Move outputs to `3rdparty/blobs/mainboard/lenovo/x220`
    8. Rename files as "descriptor.bin", "gbe.bin", "me.bin"
-   9. `make nconfig` and tune it accordingly [.config][conf]
+   9. `make nconfig` and tune it accordingly .config (dead)
    0. If it builds, verify with step 4-5 twice and finally:
 
           flashrom -p linux_spi:dev=/dev/spidev0.0 -w build/coreboot.rom
@@ -79,7 +79,7 @@ Why switch to coreboot? Default firmware took 8s to boot. Now `x < 2s`. Haha!
 8. Tips and tricks:
 
    - Find bootorder with `CONFIG_USE_OPTION_TABLE`, `CONFIG_CONSOLE_CBMEM`,
-     `DEFAULT_CONSOLE_LOGLEVEL_6` and check `util/cbmem -c | grep g\ booto`.
+     `DEFAULT_CONSOLE_LOGLEVEL_6`, then `util/cbmem/cbmem -c | grep booto`.
    - The extra config such as `bootorder`, `config_seabios` can be set with
      `$(top)/src/mainboard/$(MAINBOARDDIR)/*` where you can store it inside
      `src/mainboard/lenovo/x220/` to differentiate between different boards.
@@ -95,7 +95,6 @@ Why switch to coreboot? Default firmware took 8s to boot. Now `x < 2s`. Haha!
 [uefi]: //github.com/LongSoft/UEFITool
 [mecl]: //github.com/corna/me_cleaner
 [vejb]: //wej.k.vu/coreboot/coreboot_on_the_lenovo_thinkpad_x220
-[conf]: //git.pickfire.tk/dotfiles/plain/boot/config
 
 ![img](img/setup1.png)
 
@@ -117,8 +116,8 @@ For how it is now, I will just draw an image:
     | /dev/sdb  119GB (root) |---->| /dev/mapper/p1 (crypt) |-------------+ 
     +------------------------+     +------------------------+              
 
-https://wiki.archlinux.org/index.php/GRUB/Tips_and_tricks
-https://www.gnu.org/software/grub/manual/grub.html#Security
-https://www.reddit.com/r/coreboot/comments/4uahg5/coreboot_on_x220_examples_of_grubcfg_with_support
-https://notabug.org/vimuser/libreboot/src/master/resources/grub/config
-https://www.coreboot.org/GRUB2#Security
+- <https://wiki.archlinux.org/index.php/GRUB/Tips_and_tricks>
+- <https://www.gnu.org/software/grub/manual/grub.html#Security>
+- <https://www.reddit.com/r/coreboot/comments/4uahg5/coreboot_on_x220_examples_of_grubcfg_with_support>
+- <https://notabug.org/vimuser/libreboot/src/master/resources/grub/config>
+- <https://www.coreboot.org/GRUB2#Security>
