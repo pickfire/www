@@ -31,42 +31,42 @@ Install `h2o`.
 
 Base website with virtual host and tor support.
 
-  hosts:
-    "pickfire.tk:80": &www
-      listen: 80
-      paths: &www_paths
-        /:
-          file.dir: /srv/http/pickfire.tk
-          file.send-compressed: ON
-          access-log: /var/log/h2o/www.log
-        /tor:
-          fastcgi.spawn: "exec /srv/tor/check/check.cgi"
-          access-log: /var/log/h2o/tor.log
-        /status: &default_status
-          mruby.handler: |
-            acl {
-              allow { addr == "192.168.1.100" }
-              respond(404, {}, ["not found"])
-            }
-          status: ON
-          access-log: /var/log/h2o/status.log
-    "pickfireywcq2wf2.onion:80":
-      <<: *www
-      paths:
-        <<: *www_paths
-        /:
-          file.dir: /srv/http/pickfireywcq2wf2.onion
-          file.send-compressed: ON
-    "pickfire.tk:443":
-      listen:
-        port: 443
-        ssl: &default_ssl
-          minimum-version: TLSv1.2
-          cipher-suite: ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
-          certificate-file: /srv/www/acme.sh/pickfire.tk/fullchain.cer
-          key-file: /srv/www/acme.sh/pickfire.tk/pickfire.tk.key
-      header.set: "Strict-Transport-Security: max-age=15768000; includeSubDomains"
-      paths: *www_paths
+    hosts:
+      "pickfire.tk:80": &www
+        listen: 80
+        paths: &www_paths
+          /:
+            file.dir: /srv/http/pickfire.tk
+            file.send-compressed: ON
+            access-log: /var/log/h2o/www.log
+          /tor:
+            fastcgi.spawn: "exec /srv/tor/check/check.cgi"
+            access-log: /var/log/h2o/tor.log
+          /status: &default_status
+            mruby.handler: |
+              acl {
+                allow { addr == "192.168.1.100" }
+                respond(404, {}, ["not found"])
+              }
+            status: ON
+            access-log: /var/log/h2o/status.log
+      "pickfireywcq2wf2.onion:80":
+        <<: *www
+        paths:
+          <<: *www_paths
+          /:
+            file.dir: /srv/http/pickfireywcq2wf2.onion
+            file.send-compressed: ON
+      "pickfire.tk:443":
+        listen:
+          port: 443
+          ssl: &default_ssl
+            minimum-version: TLSv1.2
+            cipher-suite: ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+            certificate-file: /srv/www/acme.sh/pickfire.tk/fullchain.cer
+            key-file: /srv/www/acme.sh/pickfire.tk/pickfire.tk.key
+        header.set: "Strict-Transport-Security: max-age=15768000; includeSubDomains"
+        paths: *www_paths
 
 Use [acme.sh][acme] as Let's Encrypt client (minimal client for posix shell).
 
