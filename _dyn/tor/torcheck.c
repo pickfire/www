@@ -28,7 +28,7 @@ main(int argc, char *argv[])
 		fclose(fp);
 	}
 
-	printf("Content-type: text/css\r\n\r\n#tor{color:%s !important}",
+	printf("Content-type: text/css\r\n\r\n#tor{color:%s}",
 		tor ? "#008700" : "#df0000");
 	return 0;
 }

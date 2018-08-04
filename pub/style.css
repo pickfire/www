@@ -162,7 +162,7 @@ nav ul {
 }
 
 nav li ul {
-	padding-left: .6em !important;
+	padding-left: .6em;
 }
 
 nav li a {
