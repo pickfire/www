@@ -7,7 +7,8 @@ Cronjob to update the Tor's microdescriptors:
     0 * * * * /usr/local/bin/torlist.sh
 
 - `update.c` parse microdescriptors, used with `wget --mirror` in `torlist.sh`
-- `torcheck.c` (FastCGI script) checks if client uses Tor & return a CSS file
+- `check.c` (CGI script) checks if client uses Tor and output dynamic CSS file
+- `torcheck.c` (old FastCGI script) checks if client uses Tor and generate CSS
 - Prototyped in python, check previous commits for `update.py` & `torcheck.py`
 
 Install
