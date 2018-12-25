@@ -7,7 +7,7 @@ A single ***Makefile*** with some helper scripts, see [my post][0] for more info
  - [Source](http://git.pickfire.tk/www)
  - [Mirror](https://github.com/www)
 
-[0]: /posts/learn/site
+[0]: /posts/learn/site.html
 
 Powered by
 ----------
