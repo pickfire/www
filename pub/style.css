@@ -107,6 +107,7 @@ pre {
 	color: #555;
 	background-color: #eee;
 	font: 10px monospace;
+	overflow-x: auto;
 }
 
 p code {
