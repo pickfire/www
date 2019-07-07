@@ -29,3 +29,9 @@ Add the following to server block in nginx.conf.
         add_header Cache-Control "no-store";
         gzip       off;
     }
+
+Testing
+-------
+To test `check.cgi` without using a webserver.
+
+    $ SERVER_NAME=pickfire.tk REMOTE_ADDR=223.26.48.248 ./check.cgi
