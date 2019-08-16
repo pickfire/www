@@ -74,7 +74,7 @@ Why switch to coreboot? Default firmware took 8s to boot. Now `x < 2s`. Haha!
 7. After coreboot is flashed, internal flashing can be done by:
 
    - `iomem=relaxed` in cmdline
-   - `flashrom -p internal:laptop=force_I_want_a_brick`
+   - `flashrom -p internal:laptop=force_I_want_a_brick -c MX25L6405 -w build/coreboot.rom --ifd -i bios -n`
 
 8. Tips and tricks:
 
