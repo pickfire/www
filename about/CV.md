@@ -1,2 +1,2 @@
-- [PDF (en)](cv/cv-en.pdf)
-- [PDF (zh)](cv/cv-zh.pdf)
+- [PDF (en)](img/cv-en.pdf)
+- [PDF (zh)](img/cv-zh.pdf)
