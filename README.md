@@ -55,7 +55,7 @@ need to give it love and time like a wise man once spoken: [“先苦后甜”][
 
 The installation is simple, just make this your site:
 
-    git clone git://git.pickfire.tk/www --depth 1
+    git clone git://github.com/pickfire/www --depth 1
     rm -rf www/.git
 
 Configurations can be done by editing `config.sh` and `config.mk`.

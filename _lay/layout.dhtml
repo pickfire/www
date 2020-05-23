@@ -15,8 +15,6 @@ ${HEAD}
     ${MENU}
   </span>
   <span class="right">
-    <a href="//dl.${HOST}">Dl</a>
-    <a href="//git.${HOST}">Git</a>
     <a id="tor" href="http://pickfireywcq2wf2.onion/">Tor</a>
   </span>
 </menu>
