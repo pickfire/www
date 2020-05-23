@@ -1,2 +1,2 @@
-- [PDF (en)](http://dl.pickfire.tk/cv/cv-en.min.pdf)
-- [PDF (zh)](http://dl.pickfire.tk/cv/cv-zh.min.pdf)
+- [PDF (en)](cv/cv-en.pdf)
+- [PDF (zh)](cv/cv-zh.pdf)

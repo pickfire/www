@@ -8,7 +8,9 @@ POSTS != find posts/ -type f \( -name '*.md' -o -name '*.shtml' \) -a ! -path '*
 MENUS != find * -name 'index.*' -a ! -path '*_*'
 MENUS += $(wildcard [0-9]*.md [0-9]*.shtml)
 FEEDS := $(patsubst %, %atom.xml, $(dir $(POSTS))) posts/atom.xml
-EXTRA != find * \( -name '*.png' -o -name '*.jpg' -o -name '*.gif' -o -name '*.svg' -o -name '*.ico' -o -name '*.txt' -o -name '*.css' -o -name '*.ogg' \) -a ! -path '*_*'
+EXTRA != find * \( -name '*.png' -o -name '*.jpg' -o -name '*.gif' \
+	-o -name '*.svg' -o -name '*.ico' -o -name '*.txt' -o -name '*.css' \
+	-o -name '*.ogg' -o -name '*.pdf' \) -a ! -path '*_*'
 PAGES := $(ABOUT) $(POSTS) $(MENUS)
 
 # Requirements
