@@ -8,7 +8,7 @@ test -f ${TARG}/sitemap.xml \
   && return 0
 
 cat > ${TARG}/sitemap.xml <<EOF
-<?xml version="1.0" encoding="UTF-8"?><urlset>
+<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 $( (find ${TARG} -name '*.html' | sed "s|${TARG}|${HOST}|" | tee ${TARG}/urllist.txt) \
    | sed 's|^|<url><loc>|; s|$|</loc></url>|' | tr -d '\n')
 </urlset>
