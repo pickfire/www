@@ -25,4 +25,4 @@ ${CONTENT}
 <footer>
   <span class="right">
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>&ensp;<a href="/about/contact.html">Ivan Tham</a>
-    <link rel="stylesheet" href="/tor">
+    <link rel="stylesheet" href="/tor.css">
