@@ -1,11 +1,11 @@
 #!/bin/mksh
 # Usage: map.sh
-source config.sh
+. ./config.sh
 
 # Track file and dir changes (make only track file changes)
 test -f ${TARG}/sitemap.xml \
   && find ${TARG}/ -newer ${TARG}/sitemap.xml -type f -name *.html \
-  && return 0
+  && exit 0
 
 cat > ${TARG}/sitemap.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
